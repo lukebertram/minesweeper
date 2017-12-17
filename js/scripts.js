@@ -1,39 +1,42 @@
 //logic maths & computational nitty gritty
 
-//encapsulated logic for jquery plugin (still fuzzy on how this works)
-(function ($)
-{
-  // Game object constructor
-  var Game = function(root){
-    this.rootElement = root;
-  };
 
-  // Gameboard Tile object constructor
-  var Tile = function(element, x, y){
-    this.element = element;
-    this.x = x;
-    this.y = y;
-  };
+// Game object constructor
+var Game = function(root){
+  this.rootElement = root;
+};
 
-  // Gameboard object constructor
-  var Gameboard = function(element, boardSize, numMines){
-    this.element = element;
-    this.boardSize = boardSize;
-    this.numMines = numMines;
-  };
+// Gameboard Tile object constructor
+var Tile = function(element, x, y){
+  this.element = element;
+  this.x = x;
+  this.y = y;
+};
 
-  // export jQuery plugin
-  $.fn.minesweeper = function ()
+// Gameboard object constructor
+var Gameboard = function(element, boardSize, numMines){
+  this.element = element;
+  this.boardSize = boardSize;
+  this.numMines = numMines;
+};
+
+var drawBoard = function(size){
+  var boardWidthPx = size * 30 + 2;
+  $(".gameboard").css(
   {
-    Game(this);
+    'grid-template': 'repeat('+ size +', 1fr) / repeat('+ size +', 1fr)',
+    'width': boardWidthPx
+  });
+  for (var i = 0; i < size * size; i++) {
+    $(".gameboard").append('<div class="tile"></div>')
+  }
+}
 
-    return this;
-  };
-
-}(jQuery));
-
+//GLOBAL VARIABLES
+var defaultBoardSize = 7;
+var boardMatrix = [];
 
 //jquorey
 $(function(){
-  $('#minesweeper').minesweeper();
+  drawBoard(defaultBoardSize);
 });

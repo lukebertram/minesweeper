@@ -1,5 +1,6 @@
 .gameboard{
-  width: 152px; //TEMPORARY VALUE - ultimately, this will be set by javascript depending on the board-size of the the selected difficulty
+  // width: 152px; 
+  //TEMPORARY VALUE - ultimately, this will be set by javascript depending on the board-size of the the selected difficulty
   overflow: auto;
   border: $gameboard-border;
 }

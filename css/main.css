@@ -504,7 +504,6 @@ body {
   align-items: center; }
 
 .gameboard {
-  width: 152px;
   overflow: auto;
   border: 1px solid black; }
 
