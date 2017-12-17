@@ -3,3 +3,10 @@
   overflow: auto;
   border: $gameboard-border;
 }
+
+.grid-gameboard{
+  margin-top: 50px;
+  border: $gameboard-border;
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+}

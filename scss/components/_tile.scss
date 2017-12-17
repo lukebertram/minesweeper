@@ -1,10 +1,29 @@
 .tile{
   height: $tile-size;
   width: $tile-size;
-  background-color: $tile-color;
   float: left;
   border: $tile-border;
+  
+  //styling for tiles that have not yet been revealed
+  background-color: $tile-color;
+
+  //for use in displaying gameboard tiles via float: left
   &.clear{
     clear: left;
+  }
+
+  //a revealed tile with no mine and no information
+  &.empty{
+
+  }
+
+  //a revealed tile with a mine on it (only displayed on game over)
+  &.mine{
+
+  }
+
+  //a hidden tile that has been marked with a flag by the player
+  &.flagged{
+
   }
 }
