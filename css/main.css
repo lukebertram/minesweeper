@@ -494,4 +494,22 @@ body {
   position: absolute;
   width: 1px; }
 
+.wrapper {
+  max-width: 1180px;
+  margin: auto; }
+
+.gameboard {
+  width: 152px;
+  overflow: auto;
+  border: 1px solid black; }
+
+.tile {
+  height: 30px;
+  width: 30px;
+  background-color: #CCC;
+  float: left;
+  border: 1px solid black; }
+  .tile.clear {
+    clear: left; }
+
 /*# sourceMappingURL=main.css.map */

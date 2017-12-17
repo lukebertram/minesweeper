@@ -1,0 +1,10 @@
+.tile{
+  height: $tile-size;
+  width: $tile-size;
+  background-color: $tile-color;
+  float: left;
+  border: $tile-border;
+  &.clear{
+    clear: left;
+  }
+}

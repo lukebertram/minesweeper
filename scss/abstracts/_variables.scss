@@ -2,10 +2,16 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-/// BASE STYLE VARIABLES
+/// base style variables
 $body-bg-color: #888;
 
 
+// GAMEBOARD VARIABLES
+$tile-size: 30px;
+$tile-color: #CCC;
+$tile-border: 1px solid black;
+
+$gameboard-border: 1px solid black;
 
 /// Regular font family
 /// @type List
