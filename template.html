@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Template MineSweeper</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="game" id="minesweeper1">
+        <h1>Minesweeper Classic Template</h1>
+        <h3>Click the tiles to sniff out mines. Click all unmined tiles to win. Be careful not to click on a mine!</h3>
+
+        <form id="game-settings">
+          <div class="form-group">
+            <label>Size</label>
+            <select id="board-size" class="select" name="size">
+              <option value="5" selected="selected">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+          </div>
+          <button type="submit" id="newGame">New Game</button>
+        </form>
+        <div class="gameboard">
+          <!-- row 1 of gameboard -->
+          <div class="tile clear"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+
+
+          <!-- row 2 of gameboard -->
+          <div class="tile clear"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+
+          <!-- row 3 of gameboard -->
+          <div class="tile clear"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+
+
+        </div> <!-- gameboard -->
+      </div>  <!-- game -->
+    </div><!-- wrapper -->
+
+  </body>
+</html>
