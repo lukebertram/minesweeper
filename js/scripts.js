@@ -39,18 +39,36 @@ Gameboard.prototype.drawBoard = function(){
     'width': boardWidthPx
   });
   var i, j, tileElement;
-  debugger
   for (i = 0; i < this.boardSize; i++) {
     // this.boardData[i] = new Array(this.boardSize);
     for (j = 0; j < this.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile javascript-test"></div>').appendTo(this.boardElement);
+      tileElement = $('<div class="tile"></div>').appendTo(this.boardElement);
       //add a tile object to the boardData matrix
-      this.boardData[i].push(new Tile(tileElement, i, j));
+      this.boardData[i][j]= new Tile(tileElement, i, j);
       //add a location data to the tile's DOM element (for when it's clicked)
       tileElement.data('location', {x: i, y: j});
+      //add a click listener to the tile element (THIS DOES NOT WORK)
+      tileElement.mousedown(function(click){
+        switch (click.which) {
+          case 1:
+            alert('left click on tile at '+ tileElement.data('location').x +
+                  ', ' + tileElement.data('location').y );
+            break;
+          case 2:
+            //do nothing on middle mouse click
+            break;
+          case 3:
+            alert('right click on tile at'+ tileElement.data('location'));
+            break;
+
+          default:
+            alert('weird mouse alert!');
+        }
+      })
     }
   }//end of outer for loop (i)
+  debugger
 }
 
 // var drawBoard = function(size){
