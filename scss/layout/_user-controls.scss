@@ -1,0 +1,29 @@
+// User controls include:  drop down forms for changing game menu and theme.
+
+.user-controls{
+  width: 90%;
+  padding: 10% 0;
+  display: flex;
+  background-color: $brand-color;
+  flex-flow: column wrap;
+  align-items: center;
+
+  & > form {
+    text-align: center;
+    &:nth-child(3){
+      margin-top: 10%;
+    }
+  }
+}
+
+@media #{$medium}{
+  .user-controls{
+    padding: 5%;
+    flex-flow: row wrap;
+    justify-content: center;
+    & > form:nth-child(3){
+      margin-left: 10%;
+      margin-top:0;
+    }
+  }
+}

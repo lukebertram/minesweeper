@@ -2,6 +2,7 @@
   // width: 152px;
   //TEMPORARY VALUE - ultimately, this will be set by javascript depending on the board-size of the the selected difficulty
   overflow: auto;
+  margin: 15% 50%;
   border: $gameboard-border;
 }
 
@@ -10,4 +11,10 @@
   border: $gameboard-border;
   display: grid;
   // grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+}
+
+@media #{$medium}{
+  .gameboard{
+    margin: 3% 50%;
+  }
 }

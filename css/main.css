@@ -450,6 +450,18 @@ body {
   color: #222222;
   font: normal 125%/1.4 "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
+h1 {
+  font-family: 'Bungee Inline', cursive; }
+
+h3 {
+  font-family: 'Bungee', cursive; }
+
+label {
+  font-family: 'Open Sans', sans-serif; }
+
+li {
+  font-family: 'Open Sans', sans-serif; }
+
 /**
  * Clear inner floats
  */
@@ -505,6 +517,35 @@ body {
   position: absolute;
   width: 1px; }
 
+.user-controls {
+  width: 90%;
+  padding: 10% 0;
+  display: flex;
+  background-color: #e50050;
+  flex-flow: column wrap;
+  align-items: center; }
+  .user-controls > form {
+    text-align: center; }
+    .user-controls > form:nth-child(3) {
+      margin-top: 10%; }
+
+@media only screen and (min-width: 768px) {
+  .user-controls {
+    padding: 5%;
+    flex-flow: row wrap;
+    justify-content: center; }
+    .user-controls > form:nth-child(3) {
+      margin-left: 10%;
+      margin-top: 0; } }
+button {
+  width: 150px;
+  min-height: 50px;
+  border: 3px solid #fff;
+  border-radius: 2%;
+  background-color: transparent;
+  font-family: 'Bungee Hairline', cursive;
+  color: #e50050; }
+
 .wrapper {
   max-width: 1180px;
   margin: auto; }
@@ -512,10 +553,18 @@ body {
 .game {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  height: 100vh;
+  border: 1px dashed blue;
+  padding: 20% 10% 0% 10%; }
+  .game > * {
+    border: 1px dashed #000; }
+  .game h1, .game h3 {
+    text-align: center; }
 
 .gameboard {
   overflow: auto;
+  margin: 15% 50%;
   border: 1px solid black; }
 
 .grid-gameboard {
@@ -523,6 +572,9 @@ body {
   border: 1px solid black;
   display: grid; }
 
+@media only screen and (min-width: 768px) {
+  .gameboard {
+    margin: 3% 50%; } }
 .tile {
   height: 30px;
   width: 30px;
@@ -531,5 +583,13 @@ body {
   background-color: #CCC; }
   .tile.clear {
     clear: left; }
+
+select {
+  min-width: 100px;
+  background-color: #ff1969;
+  text-align: center; }
+
+label {
+  display: block; }
 
 /*# sourceMappingURL=main.css.map */
