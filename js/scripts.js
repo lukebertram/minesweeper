@@ -5,7 +5,7 @@
 var Game = function(root, difficulty){
   this.difficulty = difficulty;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), 3, 1); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), DEFAULT_BOARD_SIZE, 1); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -23,51 +23,63 @@ var Gameboard = function(boardElement, boardSize, numMines){
   this.boardElement = boardElement;
   this.boardSize = boardSize;
   this.numMines = numMines;
-  this.boardData = [];
+  this.boardData = new Array(this.boardSize);
+  //initialize 2d board data array based on boardSize
+  for (var i = 0; i < this.boardSize; i++) {
+    this.boardData[i] = new Array(this.boardSize);
+  }
   this.drawBoard();
 };
 
 Gameboard.prototype.drawBoard = function(){
+  //set the board dimension in css grid
+  var boardWidthPx = this.boardSize * TILE_WIDTH_PX + 2;
+  this.boardElement.css({
+    'grid-template': 'repeat('+ this.boardSize +', 1fr) / repeat ('+ this.boardSize +', 1fr)',
+    'width': boardWidthPx
+  });
   var i, j, tileElement;
-  for (i = 0; i < boardSize; i++) {
-    boardData[i] = [];
-    for (j = 0; i < boardSize; i++) {
+  debugger
+  for (i = 0; i < this.boardSize; i++) {
+    // this.boardData[i] = new Array(this.boardSize);
+    for (j = 0; j < this.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile"></div>').appendTo(boardElement);
+      tileElement = $('<div class="tile javascript-test"></div>').appendTo(this.boardElement);
       //add a tile object to the boardData matrix
-      boardData[i][j] = new Tile(tileElement, i, j);
+      this.boardData[i].push(new Tile(tileElement, i, j));
       //add a location data to the tile's DOM element (for when it's clicked)
       tileElement.data('location', {x: i, y: j});
     }
   }//end of outer for loop (i)
 }
 
-var drawBoard = function(size){
-  $('.gameboard').empty();
-  var boardWidthPx = size * 30 + 2;
-  console.log(size);
-  console.log(boardWidthPx);
-  $(".gameboard").css(
-  {
-    'grid-template': 'repeat('+ size +', 1fr) / repeat('+ size +', 1fr)',
-    'width': boardWidthPx
-  });
-  for (var i = 0; i < size * size; i++) {
-    $(".gameboard").append('<div class="tile"></div>')
-  }
-}
+// var drawBoard = function(size){
+//   $('.gameboard').empty();
+//   var boardWidthPx = size * 30 + 2;
+//   console.log(size);
+//   console.log(boardWidthPx);
+//   $(".gameboard").css(
+//   {
+//     'grid-template': 'repeat('+ size +', 1fr) / repeat('+ size +', 1fr)',
+//     'width': boardWidthPx
+//   });
+//   for (var i = 0; i < size * size; i++) {
+//     $(".gameboard").append('<div class="tile"></div>')
+//   }
+// }
 
 //GLOBAL VARIABLES
-var defaultBoardSize = 3;
-var boardMatrix = [];
+var DEFAULT_BOARD_SIZE = 3;
+var TILE_WIDTH_PX = 30;
 
 //jquerey
 $(function(){
-  drawBoard(defaultBoardSize);
+  var myGame = new Game($('#minesweeper1'));
+  // myGame.drawBoard();
 
-  $('#game-settings').submit(function(event){
-    event.preventDefault();
-    var size = $('#board-size').val();
-    drawBoard(size);
-  })
+  // $('#game-settings').submit(function(event){
+  //   event.preventDefault();
+  //   var size = $('#board-size').val();
+  //   drawBoard(size);
+  // })
 });
