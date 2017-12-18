@@ -1,5 +1,16 @@
 .game{
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  height: 100vh;
+  border: 1px dashed blue;
+  padding: 20% 10% 0% 10%;
+  & > * {
+    border: 1px dashed #000;
+  }
+  & h1, h3{
+    text-align: center;
+  }
 }
