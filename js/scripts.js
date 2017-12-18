@@ -11,6 +11,9 @@ var Tile = function(element, x, y){
   this.element = element;
   this.x = x;
   this.y = y;
+  this.hasMine = false;
+  this.flagged = false;
+  this.tileValue = 0;
 };
 
 // Gameboard object constructor
