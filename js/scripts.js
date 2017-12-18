@@ -2,8 +2,10 @@
 
 
 // Game object constructor
-var Game = function(root){
-  this.rootElement = root;
+var Game = function(root, difficulty){
+  this.difficulty = difficulty;
+  this.root = root;
+  this.board = new Gameboard(root.find('.gameboard'), 3, 1); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -17,11 +19,28 @@ var Tile = function(element, x, y){
 };
 
 // Gameboard object constructor
-var Gameboard = function(element, boardSize, numMines){
-  this.element = element;
+var Gameboard = function(boardElement, boardSize, numMines){
+  this.boardElement = boardElement;
   this.boardSize = boardSize;
   this.numMines = numMines;
+  this.boardData = [];
+  this.drawBoard();
 };
+
+Gameboard.prototype.drawBoard = function(){
+  var i, j, tileElement;
+  for (i = 0; i < boardSize; i++) {
+    boardData[i] = [];
+    for (j = 0; i < boardSize; i++) {
+      //add a visual representation of the tile to the DOM
+      tileElement = $('<div class="tile"></div>').appendTo(boardElement);
+      //add a tile object to the boardData matrix
+      boardData[i][j] = new Tile(tileElement, i, j);
+      //add a location data to the tile's DOM element (for when it's clicked)
+      tileElement.data('location', {x: i, y: j});
+    }
+  }//end of outer for loop (i)
+}
 
 var drawBoard = function(size){
   $('.gameboard').empty();
@@ -39,7 +58,7 @@ var drawBoard = function(size){
 }
 
 //GLOBAL VARIABLES
-var defaultBoardSize = 5;
+var defaultBoardSize = 3;
 var boardMatrix = [];
 
 //jquerey
