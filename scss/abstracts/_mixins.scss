@@ -32,3 +32,20 @@
   }
 }
 
+@mixin themeable($theme-name, $body-bg-color, $button-bg, $blank-bg) {
+  .#{$theme-name} {
+    background-color: $body-bg-color;
+
+    button {
+      background-color: $button-bg;
+    }
+
+    .tile {
+      background-color: $blank-bg;
+
+    }
+  }
+}
+
+@include themeable(theme-1, #f7eb80, #497265, purple);
+@include themeable(theme-2, #e4ada7, #d88880, green);

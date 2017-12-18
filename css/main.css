@@ -1,3 +1,17 @@
+.theme-1 {
+  background-color: #f7eb80; }
+  .theme-1 button {
+    background-color: #497265; }
+  .theme-1 .tile {
+    background-color: purple; }
+
+.theme-2 {
+  background-color: #e4ada7; }
+  .theme-2 button {
+    background-color: #d88880; }
+  .theme-2 .tile {
+    background-color: green; }
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -428,9 +442,6 @@ a {
   a:hover, a:active, a:focus {
     color: #222222;
     text-decoration: underline; }
-
-body {
-  background-color: #888; }
 
 /**
  * Basic typography style for copy text
