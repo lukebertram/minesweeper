@@ -15,7 +15,30 @@
         <h1>Floor Asplosion!</h1>
         <h3>a game of chance</h3>
 
-        <button type="button" id="newGame">New Game</button>
+        <form id="game-settings">
+          <div class="form-group">
+            <label>Size</label>
+            <select id="board-size" class="select" name="size">
+              <option value="5" selected="selected">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+          </div>
+          <!-- <div class="form-group">
+            <label>Mines</label>
+            <select class="select" name="size">
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+          </div> -->
+
+          <button type="submit" id="newGame">New Game</button>
+        </form>
 
         <div class="gameboard"></div>
 

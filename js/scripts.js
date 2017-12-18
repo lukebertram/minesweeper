@@ -21,7 +21,10 @@ var Gameboard = function(element, boardSize, numMines){
 };
 
 var drawBoard = function(size){
+  $('.gameboard').empty();
   var boardWidthPx = size * 30 + 2;
+  console.log(size);
+  console.log(boardWidthPx);
   $(".gameboard").css(
   {
     'grid-template': 'repeat('+ size +', 1fr) / repeat('+ size +', 1fr)',
@@ -33,10 +36,16 @@ var drawBoard = function(size){
 }
 
 //GLOBAL VARIABLES
-var defaultBoardSize = 7;
+var defaultBoardSize = 5;
 var boardMatrix = [];
 
-//jquorey
+//jquerey
 $(function(){
   drawBoard(defaultBoardSize);
+
+  $('#game-settings').submit(function(event){
+    event.preventDefault();
+    var size = $('#board-size').val();
+    drawBoard(size);
+  })
 });
