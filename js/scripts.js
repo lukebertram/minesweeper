@@ -18,6 +18,11 @@ var Tile = function(element, x, y){
   this.tileValue = 0;
 };
 
+// set the Tile's 'hasMine' property to either true or false
+Tile.prototype.setMine = function(boolean){
+  this.hasMine = boolean;
+}
+
 // Gameboard object constructor
 var Gameboard = function(boardElement, boardSize, numMines){
   this.boardElement = boardElement;
@@ -32,20 +37,22 @@ var Gameboard = function(boardElement, boardSize, numMines){
 };
 
 Gameboard.prototype.drawBoard = function(){
+  var ctx = this;
+  ctx.boardElement.empty();
   //set the board dimension in css grid
-  var boardWidthPx = this.boardSize * TILE_WIDTH_PX + 2;
-  this.boardElement.css({
-    'grid-template': 'repeat('+ this.boardSize +', 1fr) / repeat ('+ this.boardSize +', 1fr)',
+  var boardWidthPx = ctx.boardSize * TILE_WIDTH_PX + 2;
+  ctx.boardElement.css({
+    'grid-template': 'repeat('+ ctx.boardSize +', 1fr) / repeat ('+ ctx.boardSize +', 1fr)',
     'width': boardWidthPx
   });
   var i, j, tileElement;
-  for (i = 0; i < this.boardSize; i++) {
-    // this.boardData[i] = new Array(this.boardSize);
-    for (j = 0; j < this.boardSize; j++) {
+  for (i = 0; i < ctx.boardSize; i++) {
+    // ctx.boardData[i] = new Array(ctx.boardSize);
+    for (j = 0; j < ctx.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile"></div>').appendTo(this.boardElement);
+      tileElement = $('<div class="tile"></div>').appendTo(ctx.boardElement);
       //add a tile object to the boardData matrix
-      this.boardData[i][j]= new Tile(tileElement, i, j);
+      ctx.boardData[i][j]= new Tile(tileElement, i, j);
       //add a location data to the tile's DOM element (for when it's clicked)
       tileElement.data('location', {x: i, y: j});
       //add a click listener to the tile element (THIS DOES NOT WORK)
@@ -54,25 +61,61 @@ Gameboard.prototype.drawBoard = function(){
 
         tileElement.mouseup(function(click){
           switch (click.which) {
+            //ON LEFT CLICK:
             case 1:
-              alert('left click on tile at '+ _tileElement.data('location').x +
+              var x, y;
+              //get coordinates
+              x = _tileElement.data('location').x;
+              y = _tileElement.data('location').y;
+              //check boardData for mine, flag
+              // if ctx.boardData[x][y].hasMine(){
+              //   alert('you clicked on a mine');
+              // }
+              //toggle appropriate classes
+              _tileElement.addClass('.clicked');
+              console.log(_tileElement.attr('class'));
+              console.log('left click on tile at '+ _tileElement.data('location').x +
                     ', ' + _tileElement.data('location').y );
               break;
+
+            //ON MIDDLE CLICK:
             case 2:
               //do nothing on middle mouse click
               break;
+
+            //ON RIGHT CLICK:
             case 3:
-              alert('right click on tile at '+ _tileElement.data('location').x +
+
+              //toggle flagged class on tile element
+              _tileElement.toggleClass('.flagged');
+              console.log(_tileElement.attr('class'));
+              console.log('right click on tile at '+ _tileElement.data('location').x +
                     ', ' + _tileElement.data('location').y );
               break;
 
             default:
-              alert('weird mouse alert!');
+              console.log('weird mouse alert!');
           }
         });
       })(tileElement);
     }
   }//end of outer for loop (i)
+  ctx.setMines();
+}
+
+Gameboard.prototype.setMines = function(){
+  var i, minesPlanted = 0, x, y;
+
+  //randomly place amount of mines equal to 'numMines'
+  while (minesPlanted < this.numMines) {
+    x = getRandomInt(this.boardSize);
+    y = getRandomInt(this.boardSize);
+
+    if (!this.boardData[x][y].isMine){
+      this.boardData[x][y].setMine(true);
+      minesPlanted++;
+    }
+  }
 }
 
 //helper function to generate random integers between 0 (inclusive) and provided maximum (exclusive)
@@ -80,8 +123,13 @@ var getRandomInt = function(max){
   return Math.floor((Math.random() * max));
 };
 
+//helper funciton to set click listeners on tiles
+var setClickListener = function(element, gameboard){
+
+}
+
 //GLOBAL VARIABLES
-var DEFAULT_BOARD_SIZE = 35;
+var DEFAULT_BOARD_SIZE = 5;
 var TILE_WIDTH_PX = 30;
 var myGame;
 //jquerey
