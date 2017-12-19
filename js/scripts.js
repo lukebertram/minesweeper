@@ -63,48 +63,7 @@ Gameboard.prototype.drawBoard = function(){
       //add a location data to the tile's DOM element (for when it's clicked)
       tileElement.data('location', {x: i, y: j});
       //add a click listener to the tile element (THIS DOES NOT WORK)
-      setClickListener(tileElement, ctx.boardData)
-      // (function (_tileElement) {
-      //
-      //   _tileElement.mouseup(function(click){
-      //     switch (click.which) {
-      //       //ON LEFT CLICK:
-      //       case 1:
-      //         var x, y;
-      //         //get coordinates
-      //         x = _tileElement.data('location').x;
-      //         y = _tileElement.data('location').y;
-      //         //check boardData for mine, flag
-      //         // if ctx.boardData[x][y].isMine(){
-      //         //   alert('you clicked on a mine');
-      //         // }
-      //         //toggle appropriate classes
-      //         _tileElement.addClass('.clicked');
-      //         console.log(_tileElement.attr('class'));
-      //         console.log('left click on tile at '+ _tileElement.data('location').x +
-      //               ', ' + _tileElement.data('location').y );
-      //         break;
-      //
-      //       //ON MIDDLE CLICK:
-      //       case 2:
-      //         //do nothing on middle mouse click
-      //         break;
-      //
-      //       //ON RIGHT CLICK:
-      //       case 3:
-      //
-      //         //toggle flagged class on tile element
-      //         _tileElement.toggleClass('.flagged');
-      //         console.log(_tileElement.attr('class'));
-      //         console.log('right click on tile at '+ _tileElement.data('location').x +
-      //               ', ' + _tileElement.data('location').y );
-      //         break;
-      //
-      //       default:
-      //         console.log('weird mouse alert!');
-      //     }
-      //   });
-      // })(tileElement);
+      setClickListener(tileElement, ctx.boardData);
     }
   }//end of outer for loop (i)
   ctx.setMines();
