@@ -2,10 +2,10 @@
 
 
 // Game object constructor
-var Game = function(root, difficulty){
-  this.difficulty = difficulty;
+var Game = function(root, size){
+  this.size = size;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), DEFAULT_BOARD_SIZE, 1); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, 1); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -49,26 +49,30 @@ Gameboard.prototype.drawBoard = function(){
       //add a location data to the tile's DOM element (for when it's clicked)
       tileElement.data('location', {x: i, y: j});
       //add a click listener to the tile element (THIS DOES NOT WORK)
-      tileElement.mousedown(function(click){
-        switch (click.which) {
-          case 1:
-            alert('left click on tile at '+ tileElement.data('location').x +
-                  ', ' + tileElement.data('location').y );
-            break;
-          case 2:
-            //do nothing on middle mouse click
-            break;
-          case 3:
-            alert('right click on tile at'+ tileElement.data('location'));
-            break;
 
-          default:
-            alert('weird mouse alert!');
-        }
-      })
+      (function (_tileElement) {
+
+        tileElement.mouseup(function(click){
+          switch (click.which) {
+            case 1:
+              alert('left click on tile at '+ _tileElement.data('location').x +
+                    ', ' + _tileElement.data('location').y );
+              break;
+            case 2:
+              //do nothing on middle mouse click
+              break;
+            case 3:
+              alert('right click on tile at '+ _tileElement.data('location').x +
+                    ', ' + _tileElement.data('location').y );
+              break;
+
+            default:
+              alert('weird mouse alert!');
+          }
+        });
+      })(tileElement);
     }
   }//end of outer for loop (i)
-  debugger
 }
 
 // var drawBoard = function(size){
@@ -87,17 +91,17 @@ Gameboard.prototype.drawBoard = function(){
 // }
 
 //GLOBAL VARIABLES
-var DEFAULT_BOARD_SIZE = 3;
+var DEFAULT_BOARD_SIZE = 35;
 var TILE_WIDTH_PX = 30;
-
+var myGame;
 //jquerey
 $(function(){
-  var myGame = new Game($('#minesweeper1'));
+  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE);
   // myGame.drawBoard();
 
-  // $('#game-settings').submit(function(event){
-  //   event.preventDefault();
-  //   var size = $('#board-size').val();
-  //   drawBoard(size);
-  // })
+  $('#game-settings').submit(function(event){
+    event.preventDefault();
+    var size = $('#board-size').val();
+    myGame = new Game($('#minesweeper1'), size);
+  })
 });
