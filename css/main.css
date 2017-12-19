@@ -1,16 +1,50 @@
-.theme-1 {
-  background-color: #f7eb80; }
-  .theme-1 button {
-    background-color: #497265; }
-  .theme-1 .tile {
-    background-color: purple; }
-
-.theme-2 {
-  background-color: #e4ada7; }
-  .theme-2 button {
-    background-color: #d88880; }
-  .theme-2 .tile {
-    background-color: green; }
+.theme1 {
+  background-color: #F35e41; }
+  .theme1 button {
+    background-color: #F35e41;
+    color: #D8f1a0;
+    font-family: "Bungee Inline"; }
+  .theme1 .user-controls {
+    background-color: #00A878;
+    border-radius: 10%; }
+  .theme1 .tile {
+    background-color: #f3c178;
+    border: 1px solid #0B0500;
+    box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
+    /*top internal highlight*/ }
+  .theme1 .selected {
+    background-color: #f7d7a7;
+    border: 1px solid #0B0500; }
+  .theme1 p {
+    color: #0B0500; }
+  .theme1 select {
+    background-color: white; }
+  .theme1 h1, .theme1 h2, .theme1 h3 {
+    color: #fcd8d1; }
+  .theme1 header {
+    background-color: #00A878;
+    border-style: solid;
+    border-width: medium;
+    border-color: #f3c178;
+    border-radius: 0 0 10% 10%; }
+    .theme1 header h1 {
+      text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      letter-spacing: 10px; }
+  .theme1 #question-mark {
+    color: #D8f1a0;
+    border-style: groove;
+    border-width: thick;
+    border-color: #f3c178; }
+  .theme1 .mines-remain {
+    background-color: #f9e1be;
+    border-radius: 25%;
+    border-style: double;
+    border-color: #00A878;
+    border-width: 5px; }
+    .theme1 .mines-remain h1 {
+      color: #00A878; }
+  .theme1 .gameboard {
+    box-shadow: 7px 7px 3px 0px #222222; }
 
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -613,9 +647,9 @@ button {
   min-height: 50px;
   border: 3px solid #fff;
   border-radius: 2%;
-  background-color: transparent;
-  font-family: 'Bungee Hairline', cursive;
-  color: #e50050; }
+  margin-top: 10px;
+  text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+  letter-spacing: 10px; }
 
 .wrapper {
   width: 100%;
@@ -699,7 +733,6 @@ button {
 
 select {
   min-width: 100px;
-  background-color: #ff1969;
   text-align: center; }
 
 label {
