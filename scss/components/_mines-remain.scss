@@ -1,0 +1,34 @@
+// displays counter of remaining mines. id for mines = "mines"
+
+.mines-remain{
+  height: 120px;
+  width: 120px;
+  margin: 2% 50% 2% 50%;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  & h1{
+    margin: 0;
+  }
+  & p{
+    font-size: 2.5vw;
+    font-family: 'Bungee Hairline', cursive;
+    margin: 0;
+  }
+  & > *{
+    text-align: center;
+  }
+}
+
+@media #{$medium}{
+  .mines-remain{
+    margin: 0;
+  & p{
+    font-size: 1.5vw;
+    }
+  }
+}

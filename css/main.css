@@ -1,3 +1,17 @@
+.theme-1 {
+  background-color: #f7eb80; }
+  .theme-1 button {
+    background-color: #497265; }
+  .theme-1 .tile {
+    background-color: purple; }
+
+.theme-2 {
+  background-color: #e4ada7; }
+  .theme-2 button {
+    background-color: #d88880; }
+  .theme-2 .tile {
+    background-color: green; }
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -406,7 +420,9 @@ template {
  * Set up a decent box model on the root element
  */
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
 
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
@@ -429,15 +445,24 @@ a {
     color: #222222;
     text-decoration: underline; }
 
-body {
-  background-color: #888; }
-
 /**
  * Basic typography style for copy text
  */
 body {
   color: #222222;
   font: normal 125%/1.4 "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+
+h1 {
+  font-family: 'Bungee Inline', cursive; }
+
+h3 {
+  font-family: 'Bungee', cursive; }
+
+label {
+  font-family: 'Open Sans', sans-serif; }
+
+li {
+  font-family: 'Open Sans', sans-serif; }
 
 /**
  * Clear inner floats
@@ -494,17 +519,113 @@ body {
   position: absolute;
   width: 1px; }
 
-.wrapper {
-  max-width: 1180px;
-  margin: auto; }
+header {
+  margin: 0;
+  height: 20vh;
+  width: 100%;
+  background-color: #000;
+  color: #ededed;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-around;
+  align-items: center; }
+  header h1 {
+    font-size: 10vw;
+    margin: 0; }
+  header #question-mark {
+    background-color: #444444;
+    color: #e50050;
+    border: 3px solid #e50050;
+    border-radius: 50%;
+    padding: 0% 3.2%; }
 
+@media only screen and (min-width: 768px) {
+  #question-mark {
+    font-size: 7vw;
+    border: 2px solid #e50050;
+    padding: 0% 1.5%; } }
+.how-to {
+  display: none;
+  overflow: hidden; }
+
+.user-controls {
+  width: 100%;
+  padding: 10% 0;
+  display: flex;
+  background-color: #e50050;
+  flex-flow: column wrap;
+  align-items: center;
+  margin: 0; }
+  .user-controls > form {
+    text-align: center; }
+    .user-controls > form:nth-child(2) {
+      margin-top: 5%; }
+
+@media only screen and (min-width: 768px) {
+  .user-controls {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    padding: 3.5%;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 70%;
+    margin-bottom: 50px; }
+    .user-controls > form:first-child {
+      margin-right: 5%;
+      margin-top: 0; }
+    .user-controls > form:nth-child(2) {
+      margin-left: 10%;
+      margin-top: 0; } }
+footer {
+  margin: 0;
+  background-color: #444444;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  color: #ededed; }
+  footer ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0; }
+  footer li {
+    margin: 0;
+    display: flex; }
+
+button {
+  width: 150px;
+  min-height: 50px;
+  border: 3px solid #fff;
+  border-radius: 2%;
+  background-color: transparent;
+  font-family: 'Bungee Hairline', cursive;
+  color: #e50050; }
+
+.wrapper {
+  width: 100%;
+  margin: auto;
+  height: 100%; }
+
+@media only screen and (min-width: 768px) {
+  max-width: 1180px; }
 .game {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  padding: 5% 10% 0% 10%;
+  height: 80%; }
 
+@media only screen and (min-width: 768px) {
+  .game {
+    flex-flow: row wrap;
+    justify-content: space-around; } }
 .gameboard {
   overflow: auto;
+  margin: 4% 0 8% 0;
+  min-width: 452px;
   border: 1px solid black; }
 
 .grid-gameboard {
@@ -512,6 +633,34 @@ body {
   border: 1px solid black;
   display: grid; }
 
+@media only screen and (min-width: 768px) {
+  .gameboard {
+    margin: 0; } }
+.mines-remain {
+  height: 120px;
+  width: 120px;
+  margin: 2% 50% 2% 50%;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0; }
+  .mines-remain h1 {
+    margin: 0; }
+  .mines-remain p {
+    font-size: 2.5vw;
+    font-family: 'Bungee Hairline', cursive;
+    margin: 0; }
+  .mines-remain > * {
+    text-align: center; }
+
+@media only screen and (min-width: 768px) {
+  .mines-remain {
+    margin: 0; }
+    .mines-remain p {
+      font-size: 1.5vw; } }
 .tile {
   height: 30px;
   width: 30px;
@@ -520,5 +669,13 @@ body {
   background-color: #CCC; }
   .tile.clear {
     clear: left; }
+
+select {
+  min-width: 100px;
+  background-color: #ff1969;
+  text-align: center; }
+
+label {
+  display: block; }
 
 /*# sourceMappingURL=main.css.map */
