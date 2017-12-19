@@ -585,7 +585,8 @@ header {
     justify-content: center;
     width: 25%;
     margin: 0;
-    height: auto; }
+    height: auto;
+    align-self: stretch; }
     .user-controls > form:nth-child(2) {
       margin-top: 55%;
       margin-left: 0; } }
