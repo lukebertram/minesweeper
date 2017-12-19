@@ -32,20 +32,108 @@
   }
 }
 
-@mixin themeable($theme-name, $body-bg-color, $button-bg, $blank-bg) {
+//$body-bg-color:  #888;
+$tile-color: #CCC;
+$tile-border: 1px solid black;
+
+$gameboard-border: 1px solid black;
+/// Copy text color
+/// @type Color
+$text-color: rgb(34, 34, 34) !default;
+/// Main brand color
+/// @type Color
+$brand-color: rgb(229, 0, 80) !default;
+/// Light grey
+/// @type Color
+$light-grey: rgb(237, 237, 237) !default;
+/// Medium grey
+/// @type Color
+$mid-grey: rgb(153, 153, 153) !default;
+/// Dark grey
+/// @type Color
+$dark-grey: rgb(68, 68, 68) !default;
+//
+
+
+
+@mixin theme($theme-name, $primary, $secondary, $accent1, $accent2,
+  $color-text, $theme-font) {
   .#{$theme-name} {
-    background-color: $body-bg-color;
+    background-color: $secondary;
 
     button {
-      background-color: $button-bg;
+      background-color: $secondary;
+      color: $accent1;
+      font-family: $theme-font;
+    }
+
+    .user-controls {
+      background-color: $primary;
+      border-radius: 10%;
+      // box-shadow: 7px 7px 3px 0px $text-color;
+
     }
 
     .tile {
-      background-color: $blank-bg;
+      background-color: $accent2;
+      border: 1px solid $color-text;
+      box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
+    }
 
+    .selected {
+      background-color: lighten($accent2,10%);
+      border: 1px solid $color-text;
+    }
+
+    p {
+      color: $color-text;
+    }
+
+    select {
+      background-color: white;
+    }
+
+    h1, h2, h3 {
+      color: lighten($secondary,30%);
+    }
+
+    header {
+      background-color: $primary;
+      border-style: solid;
+      border-width: medium;
+      border-color: $accent2;
+      border-radius: 0 0 10% 10%;
+
+      h1{
+        text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      	letter-spacing: 10px;
+      }
+    }
+
+    #question-mark {
+      color: $accent1;
+      border-style: groove;
+      border-width: thick;
+      border-color: $accent2;
+    }
+
+    .mines-remain {
+      background-color: lighten($accent2,15%);
+      border-radius: 25%;
+      border-style: double;
+      border-color: $primary;
+      border-width: 5px;
+
+      h1 {
+        color: $primary;
+      }
+    }
+
+    .gameboard {
+      box-shadow: 7px 7px 3px 0px $text-color;
     }
   }
 }
 
-@include themeable(theme-1, #f7eb80, #497265, purple);
-@include themeable(theme-2, #e4ada7, #d88880, green);
+@include theme(theme1, #00A878, #F35e41, #D8f1a0, #f3c178,
+  #0B0500, 'Bungee Inline');

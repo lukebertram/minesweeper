@@ -6,7 +6,7 @@ button {
   min-height: 50px;
   border: 3px solid #fff;
   border-radius: 2%;
-  background-color: transparent;
-  font-family: 'Bungee Hairline', cursive;
-  color: $brand-color;
+  margin-top: 10px;
+	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+	letter-spacing: 10px;
 }
