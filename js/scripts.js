@@ -13,16 +13,23 @@ var Tile = function(element, x, y){
   this.element = element;
   this.x = x;
   this.y = y;
-  this.hasMine = false;
+  this.isRevealed = false;
+  this.isMine = false;
   this.flagged = false;
   this.tileValue = 0;
+  this.isEmpty = !this.tileValue;
 };
 
-// set the Tile's 'hasMine' property to either true or false
+// set the Tile's 'isMine' property to either true or false
 Tile.prototype.setMine = function(boolean){
-  this.hasMine = boolean;
+  this.isMine = boolean;
 }
 
+Tile.prototype.setTileValue = function(){
+  var tileValue = 0;
+  this.isEmpty = !tileValue;
+  this.tileValue = tileValue;
+}
 // Gameboard object constructor
 var Gameboard = function(boardElement, boardSize, numMines){
   this.boardElement = boardElement;
@@ -56,48 +63,48 @@ Gameboard.prototype.drawBoard = function(){
       //add a location data to the tile's DOM element (for when it's clicked)
       tileElement.data('location', {x: i, y: j});
       //add a click listener to the tile element (THIS DOES NOT WORK)
-
-      (function (_tileElement) {
-
-        tileElement.mouseup(function(click){
-          switch (click.which) {
-            //ON LEFT CLICK:
-            case 1:
-              var x, y;
-              //get coordinates
-              x = _tileElement.data('location').x;
-              y = _tileElement.data('location').y;
-              //check boardData for mine, flag
-              // if ctx.boardData[x][y].hasMine(){
-              //   alert('you clicked on a mine');
-              // }
-              //toggle appropriate classes
-              _tileElement.addClass('.clicked');
-              console.log(_tileElement.attr('class'));
-              console.log('left click on tile at '+ _tileElement.data('location').x +
-                    ', ' + _tileElement.data('location').y );
-              break;
-
-            //ON MIDDLE CLICK:
-            case 2:
-              //do nothing on middle mouse click
-              break;
-
-            //ON RIGHT CLICK:
-            case 3:
-
-              //toggle flagged class on tile element
-              _tileElement.toggleClass('.flagged');
-              console.log(_tileElement.attr('class'));
-              console.log('right click on tile at '+ _tileElement.data('location').x +
-                    ', ' + _tileElement.data('location').y );
-              break;
-
-            default:
-              console.log('weird mouse alert!');
-          }
-        });
-      })(tileElement);
+      setClickListener(tileElement, ctx.boardData)
+      // (function (_tileElement) {
+      //
+      //   _tileElement.mouseup(function(click){
+      //     switch (click.which) {
+      //       //ON LEFT CLICK:
+      //       case 1:
+      //         var x, y;
+      //         //get coordinates
+      //         x = _tileElement.data('location').x;
+      //         y = _tileElement.data('location').y;
+      //         //check boardData for mine, flag
+      //         // if ctx.boardData[x][y].isMine(){
+      //         //   alert('you clicked on a mine');
+      //         // }
+      //         //toggle appropriate classes
+      //         _tileElement.addClass('.clicked');
+      //         console.log(_tileElement.attr('class'));
+      //         console.log('left click on tile at '+ _tileElement.data('location').x +
+      //               ', ' + _tileElement.data('location').y );
+      //         break;
+      //
+      //       //ON MIDDLE CLICK:
+      //       case 2:
+      //         //do nothing on middle mouse click
+      //         break;
+      //
+      //       //ON RIGHT CLICK:
+      //       case 3:
+      //
+      //         //toggle flagged class on tile element
+      //         _tileElement.toggleClass('.flagged');
+      //         console.log(_tileElement.attr('class'));
+      //         console.log('right click on tile at '+ _tileElement.data('location').x +
+      //               ', ' + _tileElement.data('location').y );
+      //         break;
+      //
+      //       default:
+      //         console.log('weird mouse alert!');
+      //     }
+      //   });
+      // })(tileElement);
     }
   }//end of outer for loop (i)
   ctx.setMines();
@@ -124,8 +131,46 @@ var getRandomInt = function(max){
 };
 
 //helper funciton to set click listeners on tiles
-var setClickListener = function(element, gameboard){
+var setClickListener = function(_tileElement, boardData){
+  _tileElement.mouseup(function(click){
+    switch (click.which) {
+      //ON LEFT CLICK:
+      case 1:
+        var x, y;
+        //get coordinates
+        x = _tileElement.data('location').x;
+        y = _tileElement.data('location').y;
+        //check boardData for mine, flag
+        if (boardData[x][y].isMine)
+        {
+          alert('you clicked on a mine');
+        }
+        //toggle appropriate classes
+        _tileElement.addClass('.clicked');
+        console.log(_tileElement.attr('class'));
+        console.log('left click on tile at '+ _tileElement.data('location').x +
+              ', ' + _tileElement.data('location').y );
+        break;
 
+      //ON MIDDLE CLICK:
+      case 2:
+        //do nothing on middle mouse click
+        break;
+
+      //ON RIGHT CLICK:
+      case 3:
+
+        //toggle flagged class on tile element
+        _tileElement.toggleClass('.flagged');
+        console.log(_tileElement.attr('class'));
+        console.log('right click on tile at '+ _tileElement.data('location').x +
+              ', ' + _tileElement.data('location').y );
+        break;
+
+      default:
+        console.log('weird mouse alert!');
+    }
+  });
 }
 
 //GLOBAL VARIABLES
