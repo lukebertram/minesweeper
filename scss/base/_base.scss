@@ -6,7 +6,10 @@
  * Set up a decent box model on the root element
  */
 html {
+
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /**
@@ -32,8 +35,4 @@ a {
     color: $text-color;
     text-decoration: underline;
   }
-}
-
-body{
-  background-color: $body-bg-color;
 }

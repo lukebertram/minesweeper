@@ -1,3 +1,23 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+footer {
+  margin: 0;
+  background-color: $dark-grey;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  color: $light-grey;
+  ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+  }
+  li{
+    margin: 0;
+    display: flex;
+  }
+}

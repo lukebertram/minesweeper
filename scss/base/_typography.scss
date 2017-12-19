@@ -5,3 +5,27 @@ body {
   color: $text-color;
   font: normal 125% / 1.4 $text-font-stack;
 }
+
+
+//font families
+// font-family: 'Bungee Shade', cursive;
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Bungee Hairline', cursive;
+// font-family: 'Bungee', cursive;
+// font-family: 'Bungee Inline', cursive;
+
+
+h1{
+  font-family: 'Bungee Inline', cursive;
+}
+h3{
+  font-family: 'Bungee', cursive;
+}
+
+label{
+  font-family: 'Open Sans', sans-serif;
+}
+
+li {
+font-family: 'Open Sans', sans-serif;
+}
