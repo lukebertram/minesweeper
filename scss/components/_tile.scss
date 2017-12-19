@@ -1,9 +1,9 @@
 .tile{
-  height: $tile-size;
-  width: $tile-size;
+  // height: $tile-size;
+  // width: $tile-size;
   float: left;
   border: $tile-border;
-  
+
   //styling for tiles that have not yet been revealed
   background-color: $tile-color;
 
@@ -12,6 +12,9 @@
     clear: left;
   }
 
+  &.clicked{
+    background-color: white;
+  }
   //a revealed tile with no mine and no information
   &.empty{
 
@@ -19,11 +22,11 @@
 
   //a revealed tile with a mine on it (only displayed on game over)
   &.mine{
-
+    background-image: url('../img/mine.svg');
   }
 
   //a hidden tile that has been marked with a flag by the player
   &.flagged{
-
+    background-image: url('../img/flag-2.svg');
   }
 }

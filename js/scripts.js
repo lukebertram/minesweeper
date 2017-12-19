@@ -57,7 +57,7 @@ Gameboard.prototype.drawBoard = function(){
     // ctx.boardData[i] = new Array(ctx.boardSize);
     for (j = 0; j < ctx.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile"></div>').appendTo(ctx.boardElement);
+      tileElement = $('<div class="tile" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX +'px;"></div>').appendTo(ctx.boardElement);
       //add a tile object to the boardData matrix
       ctx.boardData[i][j]= new Tile(tileElement, i, j);
       //add a location data to the tile's DOM element (for when it's clicked)
@@ -105,7 +105,7 @@ var setClickListener = function(_tileElement, boardData){
           alert('you clicked on a mine');
         }
         //toggle appropriate classes
-        _tileElement.addClass('.clicked');
+        _tileElement.addClass('clicked');
         console.log(_tileElement.attr('class'));
         console.log('left click on tile at '+ _tileElement.data('location').x +
               ', ' + _tileElement.data('location').y );
@@ -120,7 +120,7 @@ var setClickListener = function(_tileElement, boardData){
       case 3:
 
         //toggle flagged class on tile element
-        _tileElement.toggleClass('.flagged');
+        _tileElement.toggleClass('flagged');
         console.log(_tileElement.attr('class'));
         console.log('right click on tile at '+ _tileElement.data('location').x +
               ', ' + _tileElement.data('location').y );
@@ -134,7 +134,7 @@ var setClickListener = function(_tileElement, boardData){
 
 //GLOBAL VARIABLES
 var DEFAULT_BOARD_SIZE = 5;
-var TILE_WIDTH_PX = 30;
+var TILE_WIDTH_PX = 50;
 var myGame;
 //jquerey
 $(function(){
