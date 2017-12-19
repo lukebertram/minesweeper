@@ -23,7 +23,12 @@ html {
 *::after {
   box-sizing: inherit;
 }
-
+// *:not(body):not(html) {
+//   box-sizing:border-box;
+//   & > *, *::before, *::after {
+//     box-sizing: inherit;
+//   }
+// }
 /**
  * Basic styles for links
  */
@@ -35,4 +40,11 @@ a {
     color: $text-color;
     text-decoration: underline;
   }
+}
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
