@@ -13,16 +13,23 @@ var Tile = function(element, x, y){
   this.element = element;
   this.x = x;
   this.y = y;
-  this.hasMine = false;
+  this.isRevealed = false;
+  this.isMine = false;
   this.flagged = false;
   this.tileValue = 0;
+  this.isEmpty = !this.tileValue;
 };
 
-// set the Tile's 'hasMine' property to either true or false
+// set the Tile's 'isMine' property to either true or false
 Tile.prototype.setMine = function(boolean){
-  this.hasMine = boolean;
+  this.isMine = boolean;
 }
 
+Tile.prototype.setTileValue = function(){
+  var tileValue = 0;
+  this.isEmpty = !tileValue;
+  this.tileValue = tileValue;
+}
 // Gameboard object constructor
 var Gameboard = function(boardElement, boardSize, numMines){
   this.boardElement = boardElement;
@@ -68,7 +75,7 @@ Gameboard.prototype.drawBoard = function(){
       //         x = _tileElement.data('location').x;
       //         y = _tileElement.data('location').y;
       //         //check boardData for mine, flag
-      //         // if ctx.boardData[x][y].hasMine(){
+      //         // if ctx.boardData[x][y].isMine(){
       //         //   alert('you clicked on a mine');
       //         // }
       //         //toggle appropriate classes
@@ -134,7 +141,7 @@ var setClickListener = function(_tileElement, boardData){
         x = _tileElement.data('location').x;
         y = _tileElement.data('location').y;
         //check boardData for mine, flag
-        if (boardData[x][y].hasMine)
+        if (boardData[x][y].isMine)
         {
           alert('you clicked on a mine');
         }
