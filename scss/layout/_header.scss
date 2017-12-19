@@ -27,6 +27,9 @@ header {
   }
 }
 @media #{$medium}{
+  header{
+    height: 20%;
+  }
   #question-mark{
     font-size: 7vw;
     border: 2px solid $brand-color;
