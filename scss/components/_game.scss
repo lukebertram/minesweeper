@@ -3,12 +3,34 @@
   flex-direction: column;
   align-items: center;
   padding: 5% 10% 0% 10%;
-  height: 80%;
+}
+
+.main-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media #{$medium}{
   .game{
-    flex-flow: row wrap;
-    justify-content: space-around;
+    height: 100%;
+    flex-basis: 60%;
+    flex-grow: 1;
+  }
+  .main-area{
+  }
+}
+
+@media #{$large}{
+  .game{
+    background-color: blue;
+    flex-flow: column wrap;
+    padding: 10%;
+
+  }
+  .main-area{
+    display: flex;
+    flex-direction: row-reverse;
   }
 }

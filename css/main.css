@@ -521,7 +521,7 @@ li {
 
 header {
   margin: 0;
-  height: 20vh;
+  height: 16vh;
   width: 100%;
   background-color: #000;
   color: #ededed;
@@ -539,7 +539,10 @@ header {
     border-radius: 50%;
     padding: 0% 3.2%; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 770px) {
+  header {
+    height: 20%; }
+
   #question-mark {
     font-size: 7vw;
     border: 2px solid #e50050;
@@ -550,7 +553,7 @@ header {
 
 .user-controls {
   width: 100%;
-  padding: 10% 0;
+  padding: 5% 0;
   display: flex;
   background-color: #e50050;
   flex-flow: column wrap;
@@ -561,22 +564,32 @@ header {
     .user-controls > form:nth-child(2) {
       margin-top: 5%; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 770px) {
   .user-controls {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
     padding: 3.5%;
     flex-flow: row wrap;
     justify-content: center;
     width: 70%;
-    margin-bottom: 50px; }
+    margin-bottom: 130px; }
     .user-controls > form:first-child {
       margin-right: 5%;
       margin-top: 0; }
     .user-controls > form:nth-child(2) {
       margin-left: 10%;
       margin-top: 0; } }
+@media only screen and (min-width: 1000px) {
+  .user-controls {
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 25%;
+    margin: 0;
+    height: auto;
+    align-self: stretch; }
+    .user-controls > form:nth-child(2) {
+      margin-top: 55%;
+      margin-left: 0; } }
 footer {
   margin: 0;
   background-color: #444444;
@@ -609,19 +622,35 @@ button {
   margin: auto;
   height: 100%; }
 
-@media only screen and (min-width: 768px) {
-  max-width: 1180px; }
+@media only screen and (min-width: 770px) {
+  .wrapper {
+    height: 100vh; } }
 .game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5% 10% 0% 10%;
-  height: 80%; }
+  padding: 5% 10% 0% 10%; }
 
-@media only screen and (min-width: 768px) {
+.main-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+
+@media only screen and (min-width: 770px) {
   .game {
-    flex-flow: row wrap;
-    justify-content: space-around; } }
+    height: 100%;
+    flex-basis: 60%;
+    flex-grow: 1; } }
+@media only screen and (min-width: 1000px) {
+  .game {
+    background-color: blue;
+    flex-flow: column wrap;
+    padding: 10%; }
+
+  .main-area {
+    display: flex;
+    flex-direction: row-reverse; } }
 .gameboard {
   overflow: auto;
   margin: 4% 0 8% 0;
@@ -633,13 +662,13 @@ button {
   border: 1px solid black;
   display: grid; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 770px) {
   .gameboard {
-    margin: 0; } }
+    margin: 0 0 20% 0; } }
 .mines-remain {
   height: 120px;
   width: 120px;
-  margin: 2% 50% 2% 50%;
+  margin: 5% 0% 5% 0%;
   background-color: black;
   color: #fff;
   display: flex;
@@ -656,11 +685,9 @@ button {
   .mines-remain > * {
     text-align: center; }
 
-@media only screen and (min-width: 768px) {
-  .mines-remain {
-    margin: 0; }
-    .mines-remain p {
-      font-size: 1.5vw; } }
+@media only screen and (min-width: 770px) {
+  .mines-remain p {
+    font-size: 1em; } }
 .tile {
   height: 30px;
   width: 30px;

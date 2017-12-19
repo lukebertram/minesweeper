@@ -5,5 +5,13 @@
 }
 
 @media #{$medium}{
-  max-width: $max-width;
+  .wrapper{
+    height: 100vh;
+  }
+}
+
+@media #{$large}{
+  .wrapper{
+
+  }
 }
