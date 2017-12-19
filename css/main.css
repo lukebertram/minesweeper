@@ -420,7 +420,9 @@ template {
  * Set up a decent box model on the root element
  */
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
 
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
@@ -517,6 +519,28 @@ li {
   position: absolute;
   width: 1px; }
 
+header {
+  margin: 0;
+  height: 20vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-around;
+  align-items: center; }
+  header h1 {
+    font-size: 3em;
+    margin: 0; }
+  header #question-mark {
+    color: #e50050;
+    border: 2px solid #e50050;
+    border-radius: 50%;
+    padding: 1% 3%; }
+
+.how-to {
+  display: none;
+  overflow: hidden; }
+
 .user-controls {
   width: 90%;
   padding: 10% 0;
@@ -526,7 +550,7 @@ li {
   align-items: center; }
   .user-controls > form {
     text-align: center; }
-    .user-controls > form:nth-child(3) {
+    .user-controls > form:nth-child(2) {
       margin-top: 10%; }
 
 @media only screen and (min-width: 768px) {
@@ -534,7 +558,7 @@ li {
     padding: 5%;
     flex-flow: row wrap;
     justify-content: center; }
-    .user-controls > form:nth-child(3) {
+    .user-controls > form:nth-child(2) {
       margin-left: 10%;
       margin-top: 0; } }
 button {
@@ -554,13 +578,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  border: 1px dashed blue;
-  padding: 20% 10% 0% 10%; }
-  .game > * {
-    border: 1px dashed #000; }
-  .game h1, .game h3 {
-    text-align: center; }
+  padding: 5% 10% 0% 10%; }
 
 .gameboard {
   overflow: auto;
@@ -575,6 +593,25 @@ button {
 @media only screen and (min-width: 768px) {
   .gameboard {
     margin: 3% 50%; } }
+.mines-remain {
+  height: 120px;
+  width: 120px;
+  margin: 2% 50% 2% 50%;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0; }
+  .mines-remain h1 {
+    margin: 0; }
+  .mines-remain p {
+    font-size: 1vh;
+    margin: 0; }
+  .mines-remain > * {
+    text-align: center; }
+
 .tile {
   height: 30px;
   width: 30px;

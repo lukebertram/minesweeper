@@ -20,6 +20,7 @@
 // 4. Layout-related sections
 @import
   'layout/header',
+  'layout/how-to',
   'layout/user-controls',
   'layout/footer';
 
@@ -29,6 +30,7 @@
   'components/wrapper',
   'components/game',
   'components/gameboard',
+  'components/mines-remain',
   'components/tile',
   'components/form';
 
