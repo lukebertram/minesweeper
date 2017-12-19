@@ -106,13 +106,12 @@ $dark-grey: rgb(68, 68, 68) !default;
 
       h1{
         text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
-      	letter-spacing: 10px;
+      	letter-spacing: 5px;
       }
     }
 
     #question-mark {
       color: $accent1;
-      border-style: groove;
       border-width: thick;
       border-color: $accent2;
     }
