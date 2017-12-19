@@ -522,45 +522,79 @@ li {
 header {
   margin: 0;
   height: 20vh;
+  width: 100%;
   background-color: #000;
-  color: #fff;
+  color: #ededed;
   display: flex;
   flex-flow: row no-wrap;
   justify-content: space-around;
   align-items: center; }
   header h1 {
-    font-size: 3em;
+    font-size: 10vw;
     margin: 0; }
   header #question-mark {
+    background-color: #444444;
     color: #e50050;
-    border: 2px solid #e50050;
+    border: 3px solid #e50050;
     border-radius: 50%;
-    padding: 1% 3%; }
+    padding: 0% 3.2%; }
 
+@media only screen and (min-width: 768px) {
+  #question-mark {
+    font-size: 7vw;
+    border: 2px solid #e50050;
+    padding: 0% 1.5%; } }
 .how-to {
   display: none;
   overflow: hidden; }
 
 .user-controls {
-  width: 90%;
+  width: 100%;
   padding: 10% 0;
   display: flex;
   background-color: #e50050;
   flex-flow: column wrap;
-  align-items: center; }
+  align-items: center;
+  margin: 0; }
   .user-controls > form {
     text-align: center; }
     .user-controls > form:nth-child(2) {
-      margin-top: 10%; }
+      margin-top: 5%; }
 
 @media only screen and (min-width: 768px) {
   .user-controls {
-    padding: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    padding: 3.5%;
     flex-flow: row wrap;
-    justify-content: center; }
+    justify-content: center;
+    width: 70%;
+    margin-bottom: 50px; }
+    .user-controls > form:first-child {
+      margin-right: 5%;
+      margin-top: 0; }
     .user-controls > form:nth-child(2) {
       margin-left: 10%;
       margin-top: 0; } }
+footer {
+  margin: 0;
+  background-color: #444444;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  color: #ededed; }
+  footer ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0; }
+  footer li {
+    margin: 0;
+    display: flex; }
+
 button {
   width: 150px;
   min-height: 50px;
@@ -571,18 +605,27 @@ button {
   color: #e50050; }
 
 .wrapper {
-  max-width: 1180px;
-  margin: auto; }
+  width: 100%;
+  margin: auto;
+  height: 100%; }
 
+@media only screen and (min-width: 768px) {
+  max-width: 1180px; }
 .game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5% 10% 0% 10%; }
+  padding: 5% 10% 0% 10%;
+  height: 80%; }
 
+@media only screen and (min-width: 768px) {
+  .game {
+    flex-flow: row wrap;
+    justify-content: space-around; } }
 .gameboard {
   overflow: auto;
-  margin: 15% 50%;
+  margin: 4% 0 8% 0;
+  min-width: 452px;
   border: 1px solid black; }
 
 .grid-gameboard {
@@ -592,7 +635,7 @@ button {
 
 @media only screen and (min-width: 768px) {
   .gameboard {
-    margin: 3% 50%; } }
+    margin: 0; } }
 .mines-remain {
   height: 120px;
   width: 120px;
@@ -607,11 +650,17 @@ button {
   .mines-remain h1 {
     margin: 0; }
   .mines-remain p {
-    font-size: 1vh;
+    font-size: 2.5vw;
+    font-family: 'Bungee Hairline', cursive;
     margin: 0; }
   .mines-remain > * {
     text-align: center; }
 
+@media only screen and (min-width: 768px) {
+  .mines-remain {
+    margin: 0; }
+    .mines-remain p {
+      font-size: 1.5vw; } }
 .tile {
   height: 30px;
   width: 30px;
