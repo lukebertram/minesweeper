@@ -1,29 +1,62 @@
 // User controls include:  drop down forms for changing game menu and theme.
 
 .user-controls{
-  width: 90%;
-  padding: 10% 0;
+  width: 100%;
+  padding: 5% 0;
   display: flex;
   background-color: $brand-color;
   flex-flow: column wrap;
   align-items: center;
+  margin: 0;
 
   & > form {
     text-align: center;
     &:nth-child(2){
-      margin-top: 10%;
+      margin-top: 5%;
     }
   }
+}
+///! put this mixin in the mixin folder
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
 }
 
 @media #{$medium}{
   .user-controls{
-    padding: 5%;
+    @include push--auto;
+    padding: 3.5%;
     flex-flow: row wrap;
     justify-content: center;
+    width: 70%;
+    margin-bottom:130px;
+    & > form:first-child{
+      margin-right: 5%;
+      margin-top:0;
+    }
     & > form:nth-child(2){
       margin-left: 10%;
       margin-top:0;
+    }
+  }
+}
+
+@media #{$large}{
+  .user-controls{
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 25%;
+    margin:0;
+    height: auto;
+    align-self: stretch;
+
+    & > form {
+      &:nth-child(2){
+        margin-top: 55%;
+        margin-left: 0;
+      }
     }
   }
 }
