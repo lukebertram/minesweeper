@@ -75,20 +75,10 @@ Gameboard.prototype.drawBoard = function(){
   }//end of outer for loop (i)
 }
 
-// var drawBoard = function(size){
-//   $('.gameboard').empty();
-//   var boardWidthPx = size * 30 + 2;
-//   console.log(size);
-//   console.log(boardWidthPx);
-//   $(".gameboard").css(
-//   {
-//     'grid-template': 'repeat('+ size +', 1fr) / repeat('+ size +', 1fr)',
-//     'width': boardWidthPx
-//   });
-//   for (var i = 0; i < size * size; i++) {
-//     $(".gameboard").append('<div class="tile"></div>')
-//   }
-// }
+//helper function to generate random integers between 0 (inclusive) and provided maximum (exclusive)
+var getRandomInt = function(max){
+  return Math.floor((Math.random() * max));
+};
 
 //GLOBAL VARIABLES
 var DEFAULT_BOARD_SIZE = 35;
