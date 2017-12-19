@@ -51,17 +51,17 @@ $dark-grey: rgb(68, 68, 68) !default;
 /// Breakpoints map (not in use)
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
-$breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
-) !default;
+// $breakpoints: (
+//   'small': 320px,
+//   'medium': 768px,
+//   'large': 1024px,
+// ) !default;
 
 // currently using these breakpoints
 //💻breakpoints🖥
-$small: "only screen and (min-width: 480px and max-width 769px)";
-$medium: "only screen and (min-width: 768px)";
-$large: "only screen and (min-width 999px)";
+$small: "only screen and (min-width: 480px) and (max-width 769px)";
+$medium: "only screen and (min-width: 770px)";
+$large: "only screen and (min-width: 1000px)";
 
 
 /// Relative or absolute URL where all assets are served from
