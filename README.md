@@ -2,7 +2,7 @@
 
 #### A browser-based, multi-themed minesweeper game built with JavaScript, CSS and HTML. December 18, 2017
 
-#### By **Sailor Winkleman, Holly Wilkalis, and Luke Bertram**
+#### By **Sailor Winkelman, Holly Wilkalis, and Luke Bertram**
 
 ## Description
 
@@ -42,4 +42,4 @@ This project uses SASS to efficiently generate the final CSS stylesheet for the 
 
 MIT License
 
-Copyright (c) 2017 **Sailor Winkleman, Holly Wilkalis, and Luke Bertram**
+Copyright (c) 2017 **Sailor Winkelman, Holly Wilkalis, and Luke Bertram**
