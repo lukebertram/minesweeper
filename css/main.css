@@ -1,59 +1,59 @@
 body {
-  background-color: #A2FAA3; }
+  background-color: #226CE0; }
 
 button {
-  background-color: #A2FAA3;
-  color: #92C9B1;
+  background-color: #226CE0;
+  color: #86BBD8;
   font-family: sans-serif; }
 
 .user-controls {
-  background-color: #571F4E;
+  background-color: #F03A47;
   border-radius: 10%; }
 
 .tile {
-  background-color: #92C9B1;
+  background-color: #86BBD8;
   border: 1px solid black;
-  box-shadow: inset 0px -1px 1px #0B0A07, inset 0px 1px 1px #0B0A07;
+  box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
   /*top internal highlight*/ }
 
 .selected {
-  background-color: #6a8fb3;
-  border: 1px solid #0B0A07; }
+  background-color: #c7e1c8;
+  border: 1px solid #102E4A; }
 
 p {
-  color: #0B0A07; }
+  color: #102E4A; }
 
 select {
   background-color: white; }
 
 h1, h2, h3 {
-  color: white; }
+  color: #a8c5f3; }
 
 header {
-  background-color: #571F4E;
+  background-color: #F03A47;
   border-style: solid;
   border-width: medium;
-  border-color: #4F759B;
+  border-color: #A5D0A8;
   border-radius: 0 0 10% 10%; }
   header h1 {
     text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
     letter-spacing: 10px; }
 
 #question-mark {
-  color: #92C9B1;
-  border-color: #4F759B; }
+  color: #86BBD8;
+  border-color: #A5D0A8; }
 
 .mines-remain {
-  background-color: #7b9bbc;
+  background-color: #d7ead9;
   border-radius: 25%;
   border-style: double;
-  border-color: #571F4E;
+  border-color: #F03A47;
   border-width: 5px; }
   .mines-remain h1 {
-    color: #571F4E; }
+    color: #F03A47; }
 
 .gameboard {
-  box-shadow: 7px 7px 3px 0px #0B0A07; }
+  box-shadow: 7px 7px 3px 0px #102E4A; }
 
 .theme1 {
   background-color: #F35e41; }
@@ -65,7 +65,7 @@ header {
     background-color: #00A878;
     border-radius: 10%; }
   .theme1 .tile {
-    background-color: #92C9B1;
+    background-color: #86BBD8;
     border: 1px solid black;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     /*top internal highlight*/ }
@@ -528,7 +528,7 @@ html {
  * Basic styles for links
  */
 a {
-  color: #A2FAA3;
+  color: #226CE0;
   text-decoration: none; }
   a:hover, a:active, a:focus {
     color: white;
@@ -538,7 +538,7 @@ a {
  * Basic typography style for copy text
  */
 body {
-  color: #0B0A07;
+  color: #102E4A;
   font: normal 125%/1.4 "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 h1 {
@@ -728,7 +728,6 @@ button {
     flex-grow: 1; } }
 @media only screen and (min-width: 1000px) {
   .game {
-    background-color: blue;
     flex-flow: column wrap;
     padding: 10%; }
 
@@ -752,7 +751,6 @@ button {
   height: 120px;
   width: 120px;
   margin: 5% 0% 5% 0%;
-  background-color: black;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -779,7 +777,7 @@ button {
   border: 1px solid black;
   background-size: contain;
   background-position: center;
-  background-color: #92C9B1; }
+  background-color: #86BBD8; }
   .tile.clear {
     clear: left; }
   .tile.clicked {
