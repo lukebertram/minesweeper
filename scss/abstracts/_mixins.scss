@@ -59,8 +59,10 @@
 @mixin theme($theme-name, $primary, $secondary, $accent1, $accent2,
   $color-text, $theme-font) {
 
+
   .#{$theme-name} {
     background-color: $secondary;
+    #{$tile-color}: $accent1;
 
     button {
       background-color: $secondary;
@@ -70,12 +72,12 @@
 
     .user-controls {
       background-color: $primary;
-      border-radius: 10%;
+
       // box-shadow: 7px 7px 3px 0px $text-color;
     }
 
     .tile {
-      background-color: $tile-color;
+      background-color: $accent1;
       border: $tile-border;
       box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
     }
