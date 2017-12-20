@@ -32,29 +32,6 @@
   }
 }
 
-// //$body-bg-color:  #888;
-// $tile-color: #CCC;
-// $tile-border: 1px solid black;
-//
-// $gameboard-border: 1px solid black;
-// /// Copy text color
-// /// @type Color
-// $text-color: rgb(34, 34, 34) !default;
-// /// Main brand color
-// /// @type Color
-// $brand-color: rgb(229, 0, 80) !default;
-// /// Light grey
-// /// @type Color
-// $light-grey: rgb(237, 237, 237) !default;
-// /// Medium grey
-// /// @type Color
-// $mid-grey: rgb(153, 153, 153) !default;
-// /// Dark grey
-// /// @type Color
-// $dark-grey: rgb(68, 68, 68) !default;
-// //
-
-
 
 @mixin theme($theme-name, $primary, $secondary, $accent1, $accent2,
   $color-text, $theme-font) {
@@ -70,19 +47,32 @@
       font-family: $theme-font;
     }
 
-    .user-controls {
+    .user-controls{
       background-color: $primary;
 
       // box-shadow: 7px 7px 3px 0px $text-color;
     }
+    .tile-space{
+      .tile {
+        .tile-front{
+          background-color: $tile-color;
+          box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+          border: $tile-border;
 
-    .tile {
-      background-color: $accent1;
-      border: $tile-border;
-      box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
+        }
+        .tile-back{
+          background-color: $accent2;
+          box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+          border: $tile-border;
+        }
+      }
+      &.clicked{
+        background-color: $color-text;
+      }
+
     }
 
-    .selected {
+    .selected{
       background-color: lighten($accent2,10%);
       border: 1px solid $color-text;
     }
@@ -131,9 +121,12 @@
 
     .gameboard {
       box-shadow: 7px 7px 3px 0px $color-text;
+      border: $tile-border;
     }
   }
 }
 
 @include theme(theme1, #00A878, #F35e41, #D8f1a0, #f3c178,
   #0B0500, 'Bungee Inline');
+
+@include theme(theme3, #2e151b, #2f4454, #1c3334, #da7b93, #376e5f,  'Bungee Inline');
