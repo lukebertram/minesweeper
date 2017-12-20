@@ -236,11 +236,11 @@ $(function(){
     event.preventDefault();
     var choice = $('#theme-choice').val();
     if (choice === "1") {
-      $("body").toggleClass("theme1");
+      $("body").removeClass().addClass("theme1");
     } else if (choice === "2") {
-      $("body").toggleClass("theme2");
+      $("body").removeClass().addClass("theme2");
     } else if (choice === "3") {
-      $("body").toggleClass("theme3");
-    }
+      $("body").removeClass().addClass("theme3");
+    } 
   });
 });
