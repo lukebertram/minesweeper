@@ -57,7 +57,12 @@ Gameboard.prototype.drawBoard = function(){
     // ctx.boardData[i] = new Array(ctx.boardSize);
     for (j = 0; j < ctx.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX +'px;"></div>').appendTo(ctx.boardElement);
+      tileElement = $('<div class="tile-space" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
+                        '<div class="tile">' +
+                          '<div class="tile-front"></div>' +
+                          '<div class="tile-back"></div>' +
+                        '</div>' +
+                      '</div>').appendTo(ctx.boardElement);
       //add a tile object to the boardData matrix
       ctx.boardData[i][j]= new Tile(tileElement, i, j);
       //add a location data to the tile's DOM element (for when it's clicked)
@@ -241,6 +246,6 @@ $(function(){
       $("body").removeClass().addClass("theme2");
     } else if (choice === "3") {
       $("body").removeClass().addClass("theme3");
-    } 
+    }
   });
 });
