@@ -148,13 +148,11 @@ Gameboard.prototype.checkNeighborTiles = function(tile){
   if (tile.x > 0 && tile.y > 0) {
     adjTiles.push(this.boardData[tile.x - 1][tile.y - 1]);
   }
-  console.log(adjTiles);
   for (var i = 0; i < adjTiles.length; i++) {
     if (adjTiles[i].isMine) {
       mineCount++;
     }
   }
-  console.log('minecount: '+ mineCount);
   return mineCount;
 }
 
@@ -190,9 +188,6 @@ var setClickListener = function(_tileElement, boardData){
           }
           _tileElement.addClass('clicked');
         }
-        console.log(_tileElement.attr('class'));
-        console.log('left click on tile at '+ _tileElement.data('location').x +
-              ', ' + _tileElement.data('location').y );
         break;
 
       //ON MIDDLE CLICK:
@@ -205,9 +200,6 @@ var setClickListener = function(_tileElement, boardData){
 
         //toggle flagged class on tile element
         _tileElement.toggleClass('flagged');
-        console.log(_tileElement.attr('class'));
-        console.log('right click on tile at '+ _tileElement.data('location').x +
-              ', ' + _tileElement.data('location').y );
         break;
 
       default:
