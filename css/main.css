@@ -109,6 +109,58 @@ header {
     box-shadow: 7px 7px 3px 0px #0B0500;
     border: 1px solid black; }
 
+.theme3 {
+  background-color: #2f4454;
+  #86BBD8: #1c3334; }
+  .theme3 button {
+    background-color: #2f4454;
+    color: #1c3334;
+    font-family: "Bungee Inline"; }
+  .theme3 .user-controls {
+    background-color: #2e151b; }
+  .theme3 .tile-space .tile .tile-front {
+    background-color: #86BBD8;
+    box-shadow: inset 0px -1px 1px #376e5f, inset 0px 1px 1px #376e5f;
+    border: 1px solid black; }
+  .theme3 .tile-space .tile .tile-back {
+    background-color: #da7b93;
+    box-shadow: inset 0px -1px 1px #376e5f, inset 0px 1px 1px #376e5f;
+    border: 1px solid black; }
+  .theme3 .tile-space.clicked {
+    background-color: #376e5f; }
+  .theme3 .selected {
+    background-color: #e5a3b4;
+    border: 1px solid #376e5f; }
+  .theme3 p {
+    color: #376e5f; }
+  .theme3 select {
+    background-color: white; }
+  .theme3 h1, .theme3 h2, .theme3 h3 {
+    color: #6e92ae; }
+  .theme3 header {
+    background-color: #2e151b;
+    border-style: solid;
+    border-width: medium;
+    border-color: #da7b93;
+    border-radius: 0 0 10% 10%; }
+    .theme3 header h1 {
+      text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      letter-spacing: 5px; }
+  .theme3 #question-mark {
+    color: #1c3334;
+    border-color: #da7b93; }
+  .theme3 .mines {
+    background-color: #ebb7c4;
+    border-radius: 25%;
+    border-style: double;
+    border-color: #2e151b;
+    border-width: 5px; }
+    .theme3 .mines h1 {
+      color: #2e151b; }
+  .theme3 .gameboard {
+    box-shadow: 7px 7px 3px 0px #376e5f;
+    border: 1px solid black; }
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
