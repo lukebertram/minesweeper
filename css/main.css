@@ -585,8 +585,27 @@ header {
     border: 2px solid #e50050;
     padding: 0% 1.5%; } }
 .how-to {
-  display: none;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100vh;
+  background-color: #222222a8;
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  display: none; }
+  .how-to h1 {
+    font-family: 'Bungee Shade', cursive; }
+  .how-to ul {
+    list-style: circle;
+    padding: 0; }
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 10px;
+  margin: 2%;
+  transform: rotate(225deg); }
 
 .user-controls {
   width: 100%;
