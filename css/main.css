@@ -804,7 +804,9 @@ button {
       z-index: 10; }
     .tile-space .tile .tile-back {
       transform: rotateY(180deg);
-      background-color: white; }
+      background-color: white;
+      background-size: contain;
+      background-position: center; }
     .tile-space .tile .tile-front, .tile-space .tile .tile-back {
       backface-visibility: hidden;
       position: absolute;

@@ -22,6 +22,8 @@
       .tile-back{
         transform: rotateY(180deg);
         background-color: white;
+        background-size: contain;
+        background-position: center;
       }
       .tile-front, .tile-back{
         backface-visibility: hidden;
