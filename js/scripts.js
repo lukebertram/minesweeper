@@ -95,7 +95,7 @@ Gameboard.prototype.calcTileValues = function(){
         //calculate the number of adjacent tiles containing mines
 
         var mines = this.checkNeighborTiles(tile);
-        
+
         //if the number of adjacent tiles containing mines is > 0
         if (mines > 0){
           //set the tile's tileValue attribute to the number of adjacent mines
@@ -169,6 +169,10 @@ var setClickListener = function(_tileElement, boardData){
     switch (click.which) {
       //ON LEFT CLICK:
       case 1:
+        //if clicked tile is flagged, do nothing and break
+        if (_tileElement.hasClass('flagged')) {
+          break;
+        }
         var x, y;
         //get coordinates
         x = _tileElement.data('location').x;
