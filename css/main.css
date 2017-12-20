@@ -8,10 +8,11 @@ button {
 
 .user-controls {
   background-color: #F03A47;
-  border-radius: 10%; }
+  border-style: solid;
+  border-width: medium;
+  border-color: #A5D0A8; }
 
 .tile {
-  background-color: #86BBD8;
   border: 1px solid black;
   box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
   /*top internal highlight*/ }
@@ -56,16 +57,16 @@ header {
   box-shadow: 7px 7px 3px 0px #102E4A; }
 
 .theme1 {
-  background-color: #F35e41; }
+  background-color: #F35e41;
+  #86BBD8: #D8f1a0; }
   .theme1 button {
     background-color: #F35e41;
     color: #D8f1a0;
     font-family: "Bungee Inline"; }
   .theme1 .user-controls {
-    background-color: #00A878;
-    border-radius: 10%; }
+    background-color: #00A878; }
   .theme1 .tile {
-    background-color: #86BBD8;
+    background-color: #D8f1a0;
     border: 1px solid black;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     /*top internal highlight*/ }
@@ -691,9 +692,8 @@ i {
     flex-flow: column wrap;
     justify-content: center;
     width: 25%;
-    margin: 0;
-    height: auto;
-    align-self: stretch; }
+    margin: 0 0 0 20px;
+    height: auto; }
     .user-controls > form:nth-child(2) {
       margin-top: 55%;
       margin-left: 0; } }
