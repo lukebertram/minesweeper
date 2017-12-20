@@ -216,6 +216,8 @@ var setClickListener = function(_tileElement, boardData){
   });
 }
 
+
+
 //GLOBAL VARIABLES
 var DEFAULT_BOARD_SIZE = 5;
 var TILE_WIDTH_PX = 50;
@@ -241,6 +243,17 @@ $(function(){
       $("body").removeClass().addClass("theme2");
     } else if (choice === "3") {
       $("body").removeClass().addClass("theme3");
-    } 
+    } else if (choice === "default") {
+      $("body").removeClass();
+    }
+  });
+
+  $("#question-mark").click(function() {
+    $("#how-to").add('horizTranslate');
+    $("#how-to").show();
+  });
+
+  $("#hide").click(function() {
+    $("#how-to").hide();
   });
 });
