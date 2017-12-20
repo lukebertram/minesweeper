@@ -5,7 +5,7 @@
 var Game = function(root, size){
   this.size = size;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), size, 3); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, 5); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -95,11 +95,12 @@ Gameboard.prototype.calcTileValues = function(){
         //calculate the number of adjacent tiles containing mines
 
         var mines = this.checkNeighborTiles(tile);
-
+        
         //if the number of adjacent tiles containing mines is > 0
-        if (mines.length > 0){
+        if (mines > 0){
           //set the tile's tileValue attribute to the number of adjacent mines
-          tile.setTileValue(mines.length);
+          tile.setTileValue(mines);
+
         }
         //otherwise, set the tile's isEmpty attribute to 'true'
         else{
@@ -175,11 +176,12 @@ var setClickListener = function(_tileElement, boardData){
         //check boardData for mine, flag
         if (boardData[x][y].isMine)
         {
+          _tileElement.addClass('clicked show-mine');
           alert('you clicked on a mine');
-        }
+
         //toggle clicked and add tileValue to tile div in the DOM
-        if (!_tileElement.hasClass('clicked')){
-          if (boardData[x][y].isEmpty){
+        } else if (!_tileElement.hasClass('clicked')){
+          if (!boardData[x][y].isEmpty){
             _tileElement.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
           }
           _tileElement.addClass('clicked');
