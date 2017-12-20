@@ -10,7 +10,8 @@ button {
   background-color: #F03A47;
   border-style: solid;
   border-width: medium;
-  border-color: #A5D0A8; }
+  border-color: #A5D0A8;
+  box-shadow: 3px 3px 3px 0px #102E4A; }
 
 .tile {
   border: 1px solid black;
@@ -65,14 +66,16 @@ header {
     font-family: "Bungee Inline"; }
   .theme1 .user-controls {
     background-color: #00A878; }
-  .theme1 .tile .tile-front {
+  .theme1 .tile-space .tile .tile-front {
     background-color: #86BBD8;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     border: 1px solid black; }
-  .theme1 .tile .tile-back {
+  .theme1 .tile-space .tile .tile-back {
     background-color: #f3c178;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     border: 1px solid black; }
+  .theme1 .tile-space.clicked {
+    background-color: #0B0500; }
   .theme1 .selected {
     background-color: #f7d7a7;
     border: 1px solid #0B0500; }
@@ -792,7 +795,7 @@ button {
     font-size: 1em; } }
 .tile-space {
   cursor: pointer;
-  perspective: 50px;
+  perspective: 200px;
   float: left; }
   .tile-space .tile {
     width: 100%;

@@ -7,7 +7,7 @@
 
 
 // GAMEBOARD VARIABLES
-$tile-size: 30px;
+// $tile-size: 80px; defined in JS
 $tile-border: 1px solid black;
 $gameboard-border: 1px solid black;
 
@@ -36,7 +36,7 @@ button {
   border-style: solid;
   border-width: medium;
   border-color: $accent2;
-  // box-shadow: 7px 7px 3px 0px $text-color;
+  box-shadow: 3px 3px 3px 0px $color-text;
 }
 
 .tile {

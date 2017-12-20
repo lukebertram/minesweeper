@@ -70,29 +70,32 @@
       font-family: $theme-font;
     }
 
-    .user-controls {
+    .user-controls{
       background-color: $primary;
 
       // box-shadow: 7px 7px 3px 0px $text-color;
     }
+    .tile-space{
+      .tile {
+        .tile-front{
+          background-color: $tile-color;
+          box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+          border: $tile-border;
 
-    .tile {
-      // background-color: $accent1;
-      // border: $tile-border;
-      .tile-front{
-        background-color: $tile-color;
-        box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
-        border: $tile-border;
+        }
+        .tile-back{
+          background-color: $accent2;
+          box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+          border: $tile-border;
+        }
+      }
+      &.clicked{
+        background-color: $color-text;
+      }
 
-      }
-      .tile-back{
-        background-color: $accent2;
-        box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
-        border: $tile-border;
-      }
     }
 
-    .selected {
+    .selected{
       background-color: lighten($accent2,10%);
       border: 1px solid $color-text;
     }
