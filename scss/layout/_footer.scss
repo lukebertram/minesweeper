@@ -2,13 +2,12 @@
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
 footer {
-  margin-top: auto;
-  flex-shrink:0;
-  background-color: $dark-grey;
+  margin: 0;
+  background-color: black;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  color: $light-grey;
+  color: lightgrey;
   ul {
     margin: 0;
     list-style: none;

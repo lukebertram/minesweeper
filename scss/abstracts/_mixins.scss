@@ -62,8 +62,6 @@
   .#{$theme-name} {
     background-color: $secondary;
 
-
-
     button {
       background-color: $secondary;
       color: $accent1;
@@ -130,7 +128,7 @@
     }
 
     .gameboard {
-      box-shadow: 7px 7px 3px 0px $text-color;
+      box-shadow: 7px 7px 3px 0px $color-text;
     }
   }
 }

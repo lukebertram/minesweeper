@@ -1,3 +1,60 @@
+body {
+  background-color: #226CE0; }
+
+button {
+  background-color: #226CE0;
+  color: #86BBD8;
+  font-family: sans-serif; }
+
+.user-controls {
+  background-color: #F03A47;
+  border-radius: 10%; }
+
+.tile {
+  background-color: #86BBD8;
+  border: 1px solid black;
+  box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
+  /*top internal highlight*/ }
+
+.selected {
+  background-color: #c7e1c8;
+  border: 1px solid #102E4A; }
+
+p {
+  color: #102E4A; }
+
+select {
+  background-color: white; }
+
+h1, h2, h3 {
+  color: #a8c5f3; }
+
+header {
+  background-color: #F03A47;
+  border-style: solid;
+  border-width: medium;
+  border-color: #A5D0A8;
+  border-radius: 0 0 10% 10%; }
+  header h1 {
+    text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+    letter-spacing: 10px; }
+
+#question-mark {
+  color: #86BBD8;
+  border-color: #A5D0A8; }
+
+.mines-remain {
+  background-color: #d7ead9;
+  border-radius: 25%;
+  border-style: double;
+  border-color: #F03A47;
+  border-width: 5px; }
+  .mines-remain h1 {
+    color: #F03A47; }
+
+.gameboard {
+  box-shadow: 7px 7px 3px 0px #102E4A; }
+
 .theme1 {
   background-color: #F35e41; }
   .theme1 button {
@@ -8,8 +65,8 @@
     background-color: #00A878;
     border-radius: 10%; }
   .theme1 .tile {
-    background-color: #f3c178;
-    border: 1px solid #0B0500;
+    background-color: #86BBD8;
+    border: 1px solid black;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     /*top internal highlight*/ }
   .theme1 .selected {
@@ -32,7 +89,6 @@
       letter-spacing: 5px; }
   .theme1 #question-mark {
     color: #D8f1a0;
-    border-width: thick;
     border-color: #f3c178; }
   .theme1 .mines {
     background-color: #f9e1be;
@@ -43,7 +99,7 @@
     .theme1 .mines h1 {
       color: #00A878; }
   .theme1 .gameboard {
-    box-shadow: 7px 7px 3px 0px #222222; }
+    box-shadow: 7px 7px 3px 0px #0B0500; }
 
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -472,10 +528,10 @@ html {
  * Basic styles for links
  */
 a {
-  color: #e50050;
+  color: #226CE0;
   text-decoration: none; }
   a:hover, a:active, a:focus {
-    color: #222222;
+    color: white;
     text-decoration: underline; }
 
 body {
@@ -487,7 +543,7 @@ body {
  * Basic typography style for copy text
  */
 body {
-  color: #222222;
+  color: #102E4A;
   font: normal 125%/1.4 "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 h1 {
@@ -561,8 +617,6 @@ header {
   margin: 0;
   height: 16vh;
   width: 100%;
-  background-color: #000;
-  color: #ededed;
   display: flex;
   justify-content: space-around;
   align-items: center; }
@@ -570,9 +624,7 @@ header {
     font-size: 7vw;
     margin: 0; }
   header #question-mark {
-    background-color: #444444;
-    color: #e50050;
-    border: 3px solid #e50050;
+    border: 3px solid;
     border-radius: 50%;
     padding: 0% 3.2%; }
 
@@ -582,7 +634,7 @@ header {
 
   #question-mark {
     font-size: 7vw;
-    border: 2px solid #e50050;
+    border: 2px solid;
     padding: 0% 1.5%; } }
 .how-to {
   overflow: hidden;
@@ -611,7 +663,6 @@ i {
   width: 100%;
   padding: 5% 0;
   display: flex;
-  background-color: #e50050;
   flex-flow: column wrap;
   align-items: center;
   margin: 0; }
@@ -653,7 +704,7 @@ footer {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  color: #ededed; }
+  color: lightgrey; }
   footer ul {
     margin: 0;
     list-style: none;
@@ -717,7 +768,6 @@ button {
   height: 120px;
   width: 120px;
   margin: 5% 0% 5% 0%;
-  background-color: black;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -744,7 +794,7 @@ button {
   border: 1px solid black;
   background-size: contain;
   background-position: center;
-  background-color: #CCC; }
+  background-color: #86BBD8; }
   .tile.clear {
     clear: left; }
   .tile.clicked {

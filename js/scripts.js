@@ -220,6 +220,7 @@ var setClickListener = function(_tileElement, boardData){
 var DEFAULT_BOARD_SIZE = 5;
 var TILE_WIDTH_PX = 50;
 var myGame;
+
 //jquerey
 $(function(){
   myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE);
@@ -229,5 +230,17 @@ $(function(){
     event.preventDefault();
     var size = $('#board-size').val();
     myGame = new Game($('#minesweeper1'), size);
-  })
+  });
+
+  $('#theme-selector').submit(function(event){
+    event.preventDefault();
+    var choice = $('#theme-choice').val();
+    if (choice === "1") {
+      $("body").removeClass().addClass("theme1");
+    } else if (choice === "2") {
+      $("body").removeClass().addClass("theme2");
+    } else if (choice === "3") {
+      $("body").removeClass().addClass("theme3");
+    } 
+  });
 });
