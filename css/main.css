@@ -789,6 +789,9 @@ button {
   .tile.show-mine {
     background-image: url("../img/bomb.png"); }
 
+.tile-value {
+  user-select: none; }
+
 select {
   min-width: 100px;
   text-align: center; }
