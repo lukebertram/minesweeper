@@ -1,8 +1,13 @@
 .tile{
   // height: $tile-size;
   // width: $tile-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: left;
   border: $tile-border;
+  background-size: contain;
+  background-position: center;
 
   //styling for tiles that have not yet been revealed
   background-color: $tile-color;
@@ -20,13 +25,13 @@
 
   }
 
-  //a revealed tile with a mine on it (only displayed on game over)
-  &.mine{
-    background-image: url('../img/mine.svg');
-  }
-
   //a hidden tile that has been marked with a flag by the player
   &.flagged{
-    background-image: url('../img/flag-2.svg');
+    background-image: url('../img/flag.png');
+  }
+  
+  //a revealed tile with a mine on it (only displayed on game over)
+  &.show-mine{
+    background-image: url('../img/bomb.png');
   }
 }
