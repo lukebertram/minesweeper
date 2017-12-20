@@ -737,17 +737,22 @@ button {
   .mines p {
     font-size: 1em; } }
 .tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: left;
   border: 1px solid black;
+  background-size: contain;
+  background-position: center;
   background-color: #CCC; }
   .tile.clear {
     clear: left; }
   .tile.clicked {
     background-color: white; }
-  .tile.mine {
-    background-image: url("../img/mine.svg"); }
   .tile.flagged {
-    background-image: url("../img/flag-2.svg"); }
+    background-image: url("../img/flag.png"); }
+  .tile.show-mine {
+    background-image: url("../img/bomb.png"); }
 
 .select {
   min-width: 100px;

@@ -5,7 +5,7 @@
 var Game = function(root, size){
   this.size = size;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), size, 1); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, 5); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -25,8 +25,8 @@ Tile.prototype.setMine = function(boolean){
   this.isMine = boolean;
 }
 
-Tile.prototype.setTileValue = function(){
-  var tileValue = 0;
+Tile.prototype.setTileValue = function(num){
+  var tileValue = num;
   this.isEmpty = !tileValue;
   this.tileValue = tileValue;
 }
@@ -67,6 +67,7 @@ Gameboard.prototype.drawBoard = function(){
     }
   }//end of outer for loop (i)
   ctx.setMines();
+  ctx.calcTileValues();
 }
 
 Gameboard.prototype.setMines = function(){
@@ -84,6 +85,79 @@ Gameboard.prototype.setMines = function(){
   }
 }
 
+Gameboard.prototype.calcTileValues = function(){
+  //for every tile in the boardData matrix
+  for (var i = 0; i < this.boardSize; i++) {
+    for (var j = 0; j < this.boardSize; j++) {
+      var tile = this.boardData[i][j];
+      //if the tile doesn't contain a mine
+      if(!tile.isMine){
+        //calculate the number of adjacent tiles containing mines
+
+        var mines = this.checkNeighborTiles(tile);
+
+        //if the number of adjacent tiles containing mines is > 0
+        if (mines > 0){
+          //set the tile's tileValue attribute to the number of adjacent mines
+          tile.setTileValue(mines);
+
+        }
+        //otherwise, set the tile's isEmpty attribute to 'true'
+        else{
+          tile.isEmpty = true;
+        }
+      }
+    }
+  }
+}
+
+Gameboard.prototype.checkNeighborTiles = function(tile){
+
+  var mineCount = 0;
+  var adjTiles = [];
+
+  //check north tile
+  if (tile.y > 0) {
+    adjTiles.push(this.boardData[tile.x][tile.y-1]);
+  }
+  //check northeast tile
+  if (tile.x < this.boardSize -1 && tile.y > 0){
+    adjTiles.push(this.boardData[tile.x + 1][tile.y - 1]);
+  }
+  //check east tile
+  if (tile.x < this.boardSize -1) {
+    adjTiles.push(this.boardData[tile.x + 1][tile.y]);
+  }
+  //check southeast tile
+  if (tile.x < this.boardSize -1 && tile.y < this.boardSize -1) {
+    adjTiles.push(this.boardData[tile.x + 1][tile.y + 1]);
+  }
+  //check south tile
+  if (tile.y < this.boardSize -1) {
+    adjTiles.push(this.boardData[tile.x][tile.y + 1]);
+  }
+  //check southwest tile
+  if (tile.x > 0 && tile.y < this.boardSize -1) {
+    adjTiles.push(this.boardData[tile.x - 1][tile.y + 1]);
+  }
+  //check west tile
+  if (tile.x > 0) {
+    adjTiles.push(this.boardData[tile.x - 1][tile.y]);
+  }
+  //check northwest tile
+  if (tile.x > 0 && tile.y > 0) {
+    adjTiles.push(this.boardData[tile.x - 1][tile.y - 1]);
+  }
+  console.log(adjTiles);
+  for (var i = 0; i < adjTiles.length; i++) {
+    if (adjTiles[i].isMine) {
+      mineCount++;
+    }
+  }
+  console.log('minecount: '+ mineCount);
+  return mineCount;
+}
+
 //helper function to generate random integers between 0 (inclusive) and provided maximum (exclusive)
 var getRandomInt = function(max){
   return Math.floor((Math.random() * max));
@@ -95,6 +169,10 @@ var setClickListener = function(_tileElement, boardData){
     switch (click.which) {
       //ON LEFT CLICK:
       case 1:
+        //if clicked tile is flagged, do nothing and break
+        if (_tileElement.hasClass('flagged')) {
+          break;
+        }
         var x, y;
         //get coordinates
         x = _tileElement.data('location').x;
@@ -102,10 +180,16 @@ var setClickListener = function(_tileElement, boardData){
         //check boardData for mine, flag
         if (boardData[x][y].isMine)
         {
+          _tileElement.addClass('clicked show-mine');
           alert('you clicked on a mine');
+
+        //toggle clicked and add tileValue to tile div in the DOM
+        } else if (!_tileElement.hasClass('clicked')){
+          if (!boardData[x][y].isEmpty){
+            _tileElement.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
+          }
+          _tileElement.addClass('clicked');
         }
-        //toggle appropriate classes
-        _tileElement.addClass('clicked');
         console.log(_tileElement.attr('class'));
         console.log('left click on tile at '+ _tileElement.data('location').x +
               ', ' + _tileElement.data('location').y );

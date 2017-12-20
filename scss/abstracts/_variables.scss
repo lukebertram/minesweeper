@@ -2,15 +2,14 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-/// base style variables
-$body-bg-color: #888;
+// /// base style variables
+// $body-bg-color: #888;
 
 
 // GAMEBOARD VARIABLES
 $tile-size: 30px;
-$tile-color: #CCC;
 $tile-border: 1px solid black;
-
+$tile-color: $accent2;
 $gameboard-border: 1px solid black;
 
 /// Regular font family
@@ -26,26 +25,26 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 $max-width: 1180px !default;
 // ------------------------
 // colors 🎨 section -- every variable pertaining to color in one place
-$body-bg-color:  #888;
-$tile-color: #CCC;
-$tile-border: 1px solid black;
-
-$gameboard-border: 1px solid black;
-/// Copy text color
-/// @type Color
-$text-color: rgb(34, 34, 34) !default;
-/// Main brand color
-/// @type Color
-$brand-color: rgb(229, 0, 80) !default;
-/// Light grey
-/// @type Color
-$light-grey: rgb(237, 237, 237) !default;
-/// Medium grey
-/// @type Color
-$mid-grey: rgb(153, 153, 153) !default;
-/// Dark grey
-/// @type Color
-$dark-grey: rgb(68, 68, 68) !default;
+// $body-bg-color:  #888;
+// $tile-color: #CCC;
+// $tile-border: 1px solid black;
+//
+// $gameboard-border: 1px solid black;
+// /// Copy text color
+// /// @type Color
+// $text-color: rgb(34, 34, 34) !default;
+// /// Main brand color
+// /// @type Color
+// $brand-color: rgb(229, 0, 80) !default;
+// /// Light grey
+// /// @type Color
+// $light-grey: rgb(237, 237, 237) !default;
+// /// Medium grey
+// /// @type Color
+// $mid-grey: rgb(153, 153, 153) !default;
+// /// Dark grey
+// /// @type Color
+// $dark-grey: rgb(68, 68, 68) !default;
 
 
 /// Breakpoints map (not in use)

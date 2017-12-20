@@ -32,34 +32,37 @@
   }
 }
 
-//$body-bg-color:  #888;
-$tile-color: #CCC;
-$tile-border: 1px solid black;
-
-$gameboard-border: 1px solid black;
-/// Copy text color
-/// @type Color
-$text-color: rgb(34, 34, 34) !default;
-/// Main brand color
-/// @type Color
-$brand-color: rgb(229, 0, 80) !default;
-/// Light grey
-/// @type Color
-$light-grey: rgb(237, 237, 237) !default;
-/// Medium grey
-/// @type Color
-$mid-grey: rgb(153, 153, 153) !default;
-/// Dark grey
-/// @type Color
-$dark-grey: rgb(68, 68, 68) !default;
+// //$body-bg-color:  #888;
+// $tile-color: #CCC;
+// $tile-border: 1px solid black;
 //
+// $gameboard-border: 1px solid black;
+// /// Copy text color
+// /// @type Color
+// $text-color: rgb(34, 34, 34) !default;
+// /// Main brand color
+// /// @type Color
+// $brand-color: rgb(229, 0, 80) !default;
+// /// Light grey
+// /// @type Color
+// $light-grey: rgb(237, 237, 237) !default;
+// /// Medium grey
+// /// @type Color
+// $mid-grey: rgb(153, 153, 153) !default;
+// /// Dark grey
+// /// @type Color
+// $dark-grey: rgb(68, 68, 68) !default;
+// //
 
 
 
 @mixin theme($theme-name, $primary, $secondary, $accent1, $accent2,
   $color-text, $theme-font) {
+
   .#{$theme-name} {
     background-color: $secondary;
+
+
 
     button {
       background-color: $secondary;
@@ -71,12 +74,11 @@ $dark-grey: rgb(68, 68, 68) !default;
       background-color: $primary;
       border-radius: 10%;
       // box-shadow: 7px 7px 3px 0px $text-color;
-
     }
 
     .tile {
-      background-color: $accent2;
-      border: 1px solid $color-text;
+      background-color: $tile-color;
+      border: $tile-border;
       box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
     }
 
@@ -112,7 +114,10 @@ $dark-grey: rgb(68, 68, 68) !default;
 
     #question-mark {
       color: $accent1;
+<<<<<<< HEAD
       border-width: thick;
+=======
+>>>>>>> master
       border-color: $accent2;
     }
 
