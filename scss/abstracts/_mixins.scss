@@ -108,7 +108,7 @@
 
       h1{
         text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
-      	letter-spacing: 10px;
+      	letter-spacing: 5px;
       }
     }
 
@@ -117,7 +117,7 @@
       border-color: $accent2;
     }
 
-    .mines-remain {
+    .mines {
       background-color: lighten($accent2,15%);
       border-radius: 25%;
       border-style: double;

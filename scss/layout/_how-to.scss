@@ -2,6 +2,32 @@
 // The plan is to reveal a 0.5 opacity square over the grid (in tablet and desktop, if we get the grid responsive), which pauses game and has a toggler to go back to game, and have the square take up the whole page at mobile view.
 
 .how-to{
-  display: none;
+
   overflow: hidden;
+  height: 100vh;
+  background-color: #222222a8;
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  display: none;
+
+    h1{
+      font-family: 'Bungee Shade', cursive;
+    }
+
+    ul{
+      list-style: circle;
+      padding: 0;
+    }
+}
+
+// basic styling for > style arrows
+i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 10px;
+    margin: 2%;
+    transform: rotate(225deg);
 }
