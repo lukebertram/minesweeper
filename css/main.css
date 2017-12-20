@@ -699,9 +699,9 @@ i {
       margin-left: 0; } }
 footer {
   margin-top: auto;
-  flex-shrink: 0;
-  background-color: #444444;
+  background-color: black;
   display: flex;
+  flex-shrink: 0;
   flex-flow: column wrap;
   align-items: center;
   color: lightgrey; }
@@ -754,7 +754,8 @@ button {
 .gameboard {
   overflow: auto;
   margin: 4% 0 8% 0;
-  border: 1px solid black; }
+  border: 1px solid black;
+  display: grid; }
 
 .grid-gameboard {
   margin-top: 50px;
@@ -786,22 +787,35 @@ button {
 @media only screen and (min-width: 770px) {
   .mines p {
     font-size: 1em; } }
-.tile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  float: left;
-  border: 1px solid black;
-  background-size: contain;
-  background-position: center;
-  background-color: #86BBD8; }
-  .tile.clear {
-    clear: left; }
-  .tile.clicked {
-    background-color: white; }
-  .tile.flagged {
+.tile-space {
+  cursor: pointer;
+  perspective: 80px; }
+  .tile-space .tile {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    border: 1px solid black;
+    background-size: contain;
+    background-position: center; }
+    .tile-space .tile .tile-front {
+      background-color: #86BBD8;
+      z-index: 10; }
+    .tile-space .tile .tile-back {
+      transform: rotateY(180deg);
+      background-color: white; }
+    .tile-space .tile .tile-front, .tile-space .tile .tile-back {
+      backface-visibility: hidden;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      text-align: center; }
+  .tile-space.clicked .tile {
+    transform: rotateY(180deg); }
+  .tile-space.flagged .tile-front {
     background-image: url("../img/flag.png"); }
-  .tile.show-mine {
+  .tile-space.show-mine .tile-back {
     background-image: url("../img/bomb.png"); }
 
 .select {

@@ -40,12 +40,12 @@
   }
 
   //a hidden tile that has been marked with a flag by the player
-  &.flagged{
+  &.flagged .tile-front{
     background-image: url('../img/flag.png');
   }
 
   //a revealed tile with a mine on it (only displayed on game over)
-  &.show-mine{
+  &.show-mine .tile-back{
     background-image: url('../img/bomb.png');
   }
 }
