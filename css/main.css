@@ -730,9 +730,9 @@ button {
   .tile.flagged {
     background-image: url("../img/flag-2.svg"); }
 
-select {
+.select {
   min-width: 100px;
-  text-align: center; }
+  text-align-last: center; }
 
 label {
   display: block; }
