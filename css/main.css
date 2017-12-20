@@ -66,10 +66,13 @@ header {
   .theme1 .user-controls {
     background-color: #00A878; }
   .theme1 .tile {
-    background-color: #D8f1a0;
     border: 1px solid black;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     /*top internal highlight*/ }
+    .theme1 .tile .tile-front {
+      background-color: #86BBD8; }
+    .theme1 .tile .tile-back {
+      background-color: #f3c178; }
   .theme1 .selected {
     background-color: #f7d7a7;
     border: 1px solid #0B0500; }
@@ -752,7 +755,7 @@ button {
     display: flex;
     flex-direction: row-reverse; } }
 .gameboard {
-  overflow: auto;
+  overflow: hidden;
   margin: 4% 0 8% 0;
   border: 1px solid black; }
 
@@ -788,7 +791,7 @@ button {
     font-size: 1em; } }
 .tile-space {
   cursor: pointer;
-  perspective: 80px;
+  perspective: 50px;
   float: left; }
   .tile-space .tile {
     width: 100%;
@@ -800,11 +803,11 @@ button {
     background-size: contain;
     background-position: center; }
     .tile-space .tile .tile-front {
-      background-color: #86BBD8;
-      z-index: 10; }
+      z-index: 10;
+      background-size: contain;
+      background-position: center; }
     .tile-space .tile .tile-back {
       transform: rotateY(180deg);
-      background-color: white;
       background-size: contain;
       background-position: center; }
     .tile-space .tile .tile-front, .tile-space .tile .tile-back {

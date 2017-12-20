@@ -77,9 +77,15 @@
     }
 
     .tile {
-      background-color: $accent1;
+      // background-color: $accent1;
       border: $tile-border;
       box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
+      .tile-front{
+        background-color: $tile-color;
+      }
+      .tile-back{
+        background-color: $accent2;
+      }
     }
 
     .selected {
