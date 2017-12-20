@@ -11,9 +11,6 @@
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
-    border: $tile-border;
-    background-size: contain;
-    background-position: center;
     //styling for tiles that have not yet been revealed
       .tile-front{
         z-index: 10;

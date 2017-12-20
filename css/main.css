@@ -65,14 +65,14 @@ header {
     font-family: "Bungee Inline"; }
   .theme1 .user-controls {
     background-color: #00A878; }
-  .theme1 .tile {
-    border: 1px solid black;
+  .theme1 .tile .tile-front {
+    background-color: #86BBD8;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
-    /*top internal highlight*/ }
-    .theme1 .tile .tile-front {
-      background-color: #86BBD8; }
-    .theme1 .tile .tile-back {
-      background-color: #f3c178; }
+    border: 1px solid black; }
+  .theme1 .tile .tile-back {
+    background-color: #f3c178;
+    box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
+    border: 1px solid black; }
   .theme1 .selected {
     background-color: #f7d7a7;
     border: 1px solid #0B0500; }
@@ -103,7 +103,8 @@ header {
     .theme1 .mines h1 {
       color: #00A878; }
   .theme1 .gameboard {
-    box-shadow: 7px 7px 3px 0px #0B0500; }
+    box-shadow: 7px 7px 3px 0px #0B0500;
+    border: 1px solid black; }
 
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -798,10 +799,7 @@ button {
     height: 100%;
     position: relative;
     transition: transform 1s;
-    transform-style: preserve-3d;
-    border: 1px solid black;
-    background-size: contain;
-    background-position: center; }
+    transform-style: preserve-3d; }
     .tile-space .tile .tile-front {
       z-index: 10;
       background-size: contain;

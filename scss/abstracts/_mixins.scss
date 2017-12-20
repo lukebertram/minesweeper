@@ -78,13 +78,17 @@
 
     .tile {
       // background-color: $accent1;
-      border: $tile-border;
-      box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
+      // border: $tile-border;
       .tile-front{
         background-color: $tile-color;
+        box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+        border: $tile-border;
+
       }
       .tile-back{
         background-color: $accent2;
+        box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+        border: $tile-border;
       }
     }
 
@@ -137,6 +141,7 @@
 
     .gameboard {
       box-shadow: 7px 7px 3px 0px $color-text;
+      border: $tile-border;
     }
   }
 }
