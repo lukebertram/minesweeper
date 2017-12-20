@@ -29,7 +29,7 @@
   &.flagged{
     background-image: url('../img/flag.png');
   }
-  
+
   //a revealed tile with a mine on it (only displayed on game over)
   &.show-mine{
     background-image: url('../img/bomb.png');

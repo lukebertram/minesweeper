@@ -33,12 +33,14 @@ button {
 
 .user-controls {
   background-color: $primary;
-  border-radius: 10%;
+  border-style: solid;
+  border-width: medium;
+  border-color: $accent2;
   // box-shadow: 7px 7px 3px 0px $text-color;
 }
 
 .tile {
-  background-color: $tile-color;
+  // background-color: $accent;
   border: $tile-border;
   box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
 }
