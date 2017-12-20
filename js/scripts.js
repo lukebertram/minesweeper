@@ -49,9 +49,8 @@ Gameboard.prototype.drawBoard = function(){
   //set the board dimension in css grid
   var boardWidthPx = ctx.boardSize * TILE_WIDTH_PX + 2;
   ctx.boardElement.css({
-    'display': 'grid',
-    'grid-template': 'repeat('+ ctx.boardSize +', 1fr) / repeat ('+ ctx.boardSize +', 1fr)',
-    'width': boardWidthPx
+    'width': boardWidthPx ,
+    'grid-template': 'repeat('+ ctx.boardSize +', 1fr) / repeat ('+ ctx.boardSize +', 1fr)'
   });
   var i, j, tileElement;
   for (i = 0; i < ctx.boardSize; i++) {

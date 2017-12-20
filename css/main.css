@@ -754,8 +754,7 @@ button {
 .gameboard {
   overflow: auto;
   margin: 4% 0 8% 0;
-  border: 1px solid black;
-  display: grid; }
+  border: 1px solid black; }
 
 .grid-gameboard {
   margin-top: 50px;
@@ -789,7 +788,8 @@ button {
     font-size: 1em; } }
 .tile-space {
   cursor: pointer;
-  perspective: 80px; }
+  perspective: 80px;
+  float: left; }
   .tile-space .tile {
     width: 100%;
     height: 100%;
