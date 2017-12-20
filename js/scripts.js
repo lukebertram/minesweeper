@@ -58,7 +58,7 @@ Gameboard.prototype.drawBoard = function(){
     for (j = 0; j < ctx.boardSize; j++) {
       //add a visual representation of the tile to the DOM
       tileElement = $('<div class="tile-space" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
-                        '<div class="tile">' +
+                        '<div class="tile" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
                           '<div class="tile-front"></div>' +
                           '<div class="tile-back"></div>' +
                         '</div>' +
@@ -224,7 +224,7 @@ var setClickListener = function(tileSpaceElement, boardData){
 
 //GLOBAL VARIABLES
 var DEFAULT_BOARD_SIZE = 5;
-var TILE_WIDTH_PX = 50;
+var TILE_WIDTH_PX = 80;
 var myGame;
 
 //jquerey

@@ -1,27 +1,23 @@
 .tile-space{
-  // height: $tile-size;
-  // width: $tile-size;
   cursor: pointer;
-  perspective: 80px;  //placeholder value
+  perspective: 200px;  //placeholder value - must be larger than tile width
   float:left;
-
   .tile{
     width: 100%;
     height: 100%;
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
-    border: $tile-border;
-    background-size: contain;
-    background-position: center;
     //styling for tiles that have not yet been revealed
       .tile-front{
-        background-color: $tile-color;
         z-index: 10;
+        background-size: contain;
+        background-position: center;
       }
       .tile-back{
         transform: rotateY(180deg);
-        background-color: white;
+        background-size: contain;
+        background-position: center;
       }
       .tile-front, .tile-back{
         backface-visibility: hidden;
@@ -31,10 +27,10 @@
         text-align: center;
       }
   }
-
   &.clicked .tile{
     transform: rotateY(180deg);
   }
+
   //a revealed tile with no mine and no information
   &.empty{
 
@@ -49,4 +45,5 @@
   &.show-mine .tile-back{
     background-image: url('../img/bomb.png');
   }
+
 }

@@ -10,7 +10,8 @@ button {
   background-color: #F03A47;
   border-style: solid;
   border-width: medium;
-  border-color: #A5D0A8; }
+  border-color: #A5D0A8;
+  box-shadow: 3px 3px 3px 0px #102E4A; }
 
 .tile {
   border: 1px solid black;
@@ -65,11 +66,16 @@ header {
     font-family: "Bungee Inline"; }
   .theme1 .user-controls {
     background-color: #00A878; }
-  .theme1 .tile {
-    background-color: #D8f1a0;
-    border: 1px solid black;
+  .theme1 .tile-space .tile .tile-front {
+    background-color: #86BBD8;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
-    /*top internal highlight*/ }
+    border: 1px solid black; }
+  .theme1 .tile-space .tile .tile-back {
+    background-color: #f3c178;
+    box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
+    border: 1px solid black; }
+  .theme1 .tile-space.clicked {
+    background-color: #0B0500; }
   .theme1 .selected {
     background-color: #f7d7a7;
     border: 1px solid #0B0500; }
@@ -100,7 +106,60 @@ header {
     .theme1 .mines h1 {
       color: #00A878; }
   .theme1 .gameboard {
-    box-shadow: 7px 7px 3px 0px #0B0500; }
+    box-shadow: 7px 7px 3px 0px #0B0500;
+    border: 1px solid black; }
+
+.theme3 {
+  background-color: #2f4454;
+  #86BBD8: #1c3334; }
+  .theme3 button {
+    background-color: #2f4454;
+    color: #1c3334;
+    font-family: "Bungee Inline"; }
+  .theme3 .user-controls {
+    background-color: #2e151b; }
+  .theme3 .tile-space .tile .tile-front {
+    background-color: #86BBD8;
+    box-shadow: inset 0px -1px 1px #376e5f, inset 0px 1px 1px #376e5f;
+    border: 1px solid black; }
+  .theme3 .tile-space .tile .tile-back {
+    background-color: #da7b93;
+    box-shadow: inset 0px -1px 1px #376e5f, inset 0px 1px 1px #376e5f;
+    border: 1px solid black; }
+  .theme3 .tile-space.clicked {
+    background-color: #376e5f; }
+  .theme3 .selected {
+    background-color: #e5a3b4;
+    border: 1px solid #376e5f; }
+  .theme3 p {
+    color: #376e5f; }
+  .theme3 select {
+    background-color: white; }
+  .theme3 h1, .theme3 h2, .theme3 h3 {
+    color: #6e92ae; }
+  .theme3 header {
+    background-color: #2e151b;
+    border-style: solid;
+    border-width: medium;
+    border-color: #da7b93;
+    border-radius: 0 0 10% 10%; }
+    .theme3 header h1 {
+      text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      letter-spacing: 5px; }
+  .theme3 #question-mark {
+    color: #1c3334;
+    border-color: #da7b93; }
+  .theme3 .mines {
+    background-color: #ebb7c4;
+    border-radius: 25%;
+    border-style: double;
+    border-color: #2e151b;
+    border-width: 5px; }
+    .theme3 .mines h1 {
+      color: #2e151b; }
+  .theme3 .gameboard {
+    box-shadow: 7px 7px 3px 0px #376e5f;
+    border: 1px solid black; }
 
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -752,7 +811,7 @@ button {
     display: flex;
     flex-direction: row-reverse; } }
 .gameboard {
-  overflow: auto;
+  overflow: hidden;
   margin: 4% 0 8% 0;
   border: 1px solid black; }
 
@@ -788,23 +847,22 @@ button {
     font-size: 1em; } }
 .tile-space {
   cursor: pointer;
-  perspective: 80px;
+  perspective: 200px;
   float: left; }
   .tile-space .tile {
     width: 100%;
     height: 100%;
     position: relative;
     transition: transform 1s;
-    transform-style: preserve-3d;
-    border: 1px solid black;
-    background-size: contain;
-    background-position: center; }
+    transform-style: preserve-3d; }
     .tile-space .tile .tile-front {
-      background-color: #86BBD8;
-      z-index: 10; }
+      z-index: 10;
+      background-size: contain;
+      background-position: center; }
     .tile-space .tile .tile-back {
       transform: rotateY(180deg);
-      background-color: white; }
+      background-size: contain;
+      background-position: center; }
     .tile-space .tile .tile-front, .tile-space .tile .tile-back {
       backface-visibility: hidden;
       position: absolute;
