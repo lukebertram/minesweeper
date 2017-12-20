@@ -9,8 +9,91 @@
 // GAMEBOARD VARIABLES
 $tile-size: 30px;
 $tile-border: 1px solid black;
-$tile-color: $accent2;
 $gameboard-border: 1px solid black;
+
+//DEFAULT COLOR VALUES
+$primary: #571F4E;
+$secondary: #A2FAA3;
+$accent1: #92C9B1;
+$accent2: #4F759B;
+$color-text: #0B0A07;
+$tile-color: $accent1;
+$theme-font: sans-serif;
+
+//DEFAULT PAGE STYLES
+body {
+background-color: $secondary;
+}
+
+button {
+  background-color: $secondary;
+  color: $accent1;
+  font-family: $theme-font;
+}
+
+.user-controls {
+  background-color: $primary;
+  border-radius: 10%;
+  // box-shadow: 7px 7px 3px 0px $text-color;
+}
+
+.tile {
+  background-color: $tile-color;
+  border: $tile-border;
+  box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
+}
+
+.selected {
+  background-color: lighten($accent2,10%);
+  border: 1px solid $color-text;
+}
+
+p {
+  color: $color-text;
+}
+
+select {
+  background-color: white;
+}
+
+h1, h2, h3 {
+  color: lighten($secondary,30%);
+}
+
+header {
+  background-color: $primary;
+  border-style: solid;
+  border-width: medium;
+  border-color: $accent2;
+  border-radius: 0 0 10% 10%;
+
+  h1{
+    text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+  	letter-spacing: 10px;
+  }
+}
+
+#question-mark {
+  color: $accent1;
+  border-color: $accent2;
+}
+
+.mines-remain {
+  background-color: lighten($accent2,15%);
+  border-radius: 25%;
+  border-style: double;
+  border-color: $primary;
+  border-width: 5px;
+
+  h1 {
+    color: $primary;
+  }
+}
+
+.gameboard {
+  box-shadow: 7px 7px 3px 0px $color-text;
+}
+
 
 /// Regular font family
 /// @type List
@@ -24,37 +107,7 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 /// @type Length
 $max-width: 1180px !default;
 // ------------------------
-// colors 🎨 section -- every variable pertaining to color in one place
-// $body-bg-color:  #888;
-// $tile-color: #CCC;
-// $tile-border: 1px solid black;
-//
-// $gameboard-border: 1px solid black;
-// /// Copy text color
-// /// @type Color
-// $text-color: rgb(34, 34, 34) !default;
-// /// Main brand color
-// /// @type Color
-// $brand-color: rgb(229, 0, 80) !default;
-// /// Light grey
-// /// @type Color
-// $light-grey: rgb(237, 237, 237) !default;
-// /// Medium grey
-// /// @type Color
-// $mid-grey: rgb(153, 153, 153) !default;
-// /// Dark grey
-// /// @type Color
-// $dark-grey: rgb(68, 68, 68) !default;
 
-
-/// Breakpoints map (not in use)
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
-// $breakpoints: (
-//   'small': 320px,
-//   'medium': 768px,
-//   'large': 1024px,
-// ) !default;
 
 // currently using these breakpoints
 //💻breakpoints🖥

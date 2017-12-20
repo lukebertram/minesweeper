@@ -1,3 +1,60 @@
+body {
+  background-color: #A2FAA3; }
+
+button {
+  background-color: #A2FAA3;
+  color: #92C9B1;
+  font-family: sans-serif; }
+
+.user-controls {
+  background-color: #571F4E;
+  border-radius: 10%; }
+
+.tile {
+  background-color: #92C9B1;
+  border: 1px solid black;
+  box-shadow: inset 0px -1px 1px #0B0A07, inset 0px 1px 1px #0B0A07;
+  /*top internal highlight*/ }
+
+.selected {
+  background-color: #6a8fb3;
+  border: 1px solid #0B0A07; }
+
+p {
+  color: #0B0A07; }
+
+select {
+  background-color: white; }
+
+h1, h2, h3 {
+  color: white; }
+
+header {
+  background-color: #571F4E;
+  border-style: solid;
+  border-width: medium;
+  border-color: #4F759B;
+  border-radius: 0 0 10% 10%; }
+  header h1 {
+    text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+    letter-spacing: 10px; }
+
+#question-mark {
+  color: #92C9B1;
+  border-color: #4F759B; }
+
+.mines-remain {
+  background-color: #7b9bbc;
+  border-radius: 25%;
+  border-style: double;
+  border-color: #571F4E;
+  border-width: 5px; }
+  .mines-remain h1 {
+    color: #571F4E; }
+
+.gameboard {
+  box-shadow: 7px 7px 3px 0px #0B0A07; }
+
 .theme1 {
   background-color: #F35e41; }
   .theme1 button {
@@ -8,8 +65,8 @@
     background-color: #00A878;
     border-radius: 10%; }
   .theme1 .tile {
-    background-color: #f3c178;
-    border: 1px solid #0B0500;
+    background-color: #92C9B1;
+    border: 1px solid black;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     /*top internal highlight*/ }
   .theme1 .selected {
@@ -32,8 +89,6 @@
       letter-spacing: 10px; }
   .theme1 #question-mark {
     color: #D8f1a0;
-    border-style: groove;
-    border-width: thick;
     border-color: #f3c178; }
   .theme1 .mines-remain {
     background-color: #f9e1be;
@@ -44,7 +99,7 @@
     .theme1 .mines-remain h1 {
       color: #00A878; }
   .theme1 .gameboard {
-    box-shadow: 7px 7px 3px 0px #222222; }
+    box-shadow: 7px 7px 3px 0px #0B0500; }
 
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -473,17 +528,17 @@ html {
  * Basic styles for links
  */
 a {
-  color: #e50050;
+  color: #A2FAA3;
   text-decoration: none; }
   a:hover, a:active, a:focus {
-    color: #222222;
+    color: white;
     text-decoration: underline; }
 
 /**
  * Basic typography style for copy text
  */
 body {
-  color: #222222;
+  color: #0B0A07;
   font: normal 125%/1.4 "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 h1 {
@@ -557,8 +612,6 @@ header {
   margin: 0;
   height: 16vh;
   width: 100%;
-  background-color: #000;
-  color: #ededed;
   display: flex;
   flex-flow: row no-wrap;
   justify-content: space-around;
@@ -567,9 +620,7 @@ header {
     font-size: 10vw;
     margin: 0; }
   header #question-mark {
-    background-color: #444444;
-    color: #e50050;
-    border: 3px solid #e50050;
+    border: 3px solid;
     border-radius: 50%;
     padding: 0% 3.2%; }
 
@@ -579,7 +630,7 @@ header {
 
   #question-mark {
     font-size: 7vw;
-    border: 2px solid #e50050;
+    border: 2px solid;
     padding: 0% 1.5%; } }
 .how-to {
   display: none;
@@ -589,7 +640,6 @@ header {
   width: 100%;
   padding: 5% 0;
   display: flex;
-  background-color: #e50050;
   flex-flow: column wrap;
   align-items: center;
   margin: 0; }
@@ -626,11 +676,11 @@ header {
       margin-left: 0; } }
 footer {
   margin: 0;
-  background-color: #444444;
+  background-color: black;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  color: #ededed; }
+  color: lightgrey; }
   footer ul {
     margin: 0;
     list-style: none;
@@ -729,7 +779,7 @@ button {
   border: 1px solid black;
   background-size: contain;
   background-position: center;
-  background-color: #CCC; }
+  background-color: #92C9B1; }
   .tile.clear {
     clear: left; }
   .tile.clicked {
