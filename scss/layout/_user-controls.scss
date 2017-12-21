@@ -1,10 +1,12 @@
 // User controls include:  drop down forms for changing game menu and theme.
-
 .user-controls{
+  width: 100%;
+  display: flex;
+}
+.forms{
   width: 100%;
   padding: 5% 0;
   display: flex;
-  // background-color: $brand-color;
   flex-flow: column wrap;
   align-items: center;
   margin: 0;
@@ -26,37 +28,36 @@
 
 @media #{$medium}{
   .user-controls{
-    @include push--auto;
-    padding: 3.5%;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 70%;
-    margin-bottom:130px;
-    & > form:first-child{
-      margin-right: 5%;
-      margin-top:0;
-    }
-    & > form:nth-child(2){
-      margin-left: 10%;
-      margin-top:0;
+    max-width: 70%;
+    .forms{
+      padding: 3.5%;
+      flex-flow: row wrap;
+      justify-content: center;
+      width: 100%;
+      & > form:first-child{
+        margin-right: 5%;
+        margin-top:0;
+      }
+      & > form:nth-child(2){
+        margin-left: 10%;
+        margin-top:0;
+      }
     }
   }
 }
 
 @media #{$large}{
   .user-controls{
-    flex-flow: column wrap;
-    justify-content: center;
-    width: 25%;
-    margin:0 0 0 20px;
-    height: auto;
-    // align-self: stretch;
-
-    & > form {
-      &:nth-child(2){
-        margin-top: 55%;
-        margin-left: 0;
-      }
+    flex-basis: 15%;
+    .forms{
+      padding: 5% 0;
+      flex-flow: column wrap;
+      justify-content: space-around;
+      width: 100%;
+      min-height: 600px;
     }
+  }
+  #game-settings, #theme-selector{
+    margin: 0;
   }
 }
