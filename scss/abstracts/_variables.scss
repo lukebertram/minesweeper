@@ -17,7 +17,7 @@ $secondary: #226CE0;
 $accent1: #86BBD8;
 $accent2: #A5D0A8;
 $color-text: #102E4A;
-$tile-color: $accent1;
+// $tile-color: $accent1;
 $theme-font: sans-serif;
 
 //DEFAULT PAGE STYLES
@@ -38,11 +38,24 @@ button {
   border-color: $accent2;
   box-shadow: 3px 3px 3px 0px $color-text;
 }
+.tile-space{
+  .tile {
+    .tile-front{
+      background-color: $accent1;
+      box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+      border: $tile-border;
 
-.tile {
-  // background-color: $accent;
-  border: $tile-border;
-  box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
+    }
+    .tile-back{
+      background-color: $accent2;
+      box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
+      border: $tile-border;
+    }
+  }
+  &.clicked{
+    background-color: $color-text;
+  }
+
 }
 
 .selected {

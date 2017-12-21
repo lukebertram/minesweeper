@@ -39,7 +39,7 @@
 
   .#{$theme-name} {
     background-color: $secondary;
-    #{$tile-color}: $accent1;
+    // #{$tile-color}: $accent1;
 
     button {
       background-color: $secondary;
@@ -55,7 +55,7 @@
     .tile-space{
       .tile {
         .tile-front{
-          background-color: $tile-color;
+          background-color: $accent1;
           box-shadow: inset 0px -1px 1px $color-text, inset 0px 1px 1px $color-text;
           border: $tile-border;
 
