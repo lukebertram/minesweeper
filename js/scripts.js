@@ -274,36 +274,24 @@ const DEFAULT_TILE_WIDTH_PX = 70;
 var tileWidthPx = DEFAULT_TILE_WIDTH_PX;
 
 // define media query for medium and large desktop sizes
-var mqMedium = window.matchMedia("(min-width: 770px)");
-var mqLarge = window.matchMedia("(min-width: 1200px)");
-// set tile width based on window size
-console.log(mqMedium);
-console.log(mqLarge);
-if (mqLarge.matches){//window has a minimum width of 1200px
-  var tileWidth = 70;
-  console.log(tileWidth);
-} else if(mqMedium.matches){//window has a minimum width of 770px
-  var tileWidth = 50;
-  console.log(tileWidth);
-}
-else { //window width is smaller than 770px
-  var tileWidth = 29;
-  console.log(tileWidth);
-}
 
 var setTileWidth = function(tilesInBoard){
   var vw = window.innerWidth;
+  var vh = window.innerHeight;
+  var vmin = ((vw < vh) ? vw : vh);
   var mqLarge = window.matchMedia("(min-width: 1200px)");
   var mqTablet = window.matchMedia("(min-width: 770px)");
   if (mqLarge.matches){
-    vw = vw * 0.5;
-  }else if (mqTablet.matches){
-    vw = 0.6 * vw;
-  } else {
-    vw = 0.9 * vw;
-  }
-  tileWidthPx = Math.floor(vw / tilesInBoard);
 
+    vmin = 0.5 * vmin;
+
+  }else if (mqTablet.matches){
+    vmin = 0.6 * vmin;
+  } else {
+    vmin = 0.9 * vmin;
+  }
+
+  tileWidthPx = Math.floor(vmin / tilesInBoard);
 };
 var myGame;
 
