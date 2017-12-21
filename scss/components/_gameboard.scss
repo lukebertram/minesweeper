@@ -3,8 +3,30 @@
   overflow: hidden;
   margin: 4% 0 8% 0;
   border: $gameboard-border;
+
+  &:after{
+    font: $gameover-font;
+    color: $victory-color;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "YOU DID IT!";
+    transition: all 2s ease;
+  }
 }
+
+
 .victory:after{
+  z-index: 1;
+  opacity: 1;
   font: $gameover-font;
   color: $victory-color;
   position: absolute;
@@ -17,9 +39,11 @@
   justify-content: center;
   align-items: center;
   content: "YOU DID IT!";
-  transition: 2s ease;
+  transition: all 2s ease;
 }
 .gameover:after{
+  z-index: 1;
+  opacity: 1;
   font: $gameover-font;
   color: $gameover-color;
   position: absolute;
@@ -32,6 +56,7 @@
   justify-content: center;
   align-items: center;
   content: "GAME OVER";
+  transition: all 2s ease;
 }
 
 @media #{$medium}{

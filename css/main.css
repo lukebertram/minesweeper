@@ -824,8 +824,26 @@ button {
   overflow: hidden;
   margin: 4% 0 8% 0;
   border: 1px solid black; }
+  .gameboard:after {
+    font: bolder 2em helvetica;
+    color: #fff;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "YOU DID IT!";
+    transition: all 2s ease; }
 
 .victory:after {
+  z-index: 1;
+  opacity: 1;
   font: bolder 2em helvetica;
   color: #fff;
   position: absolute;
@@ -838,9 +856,11 @@ button {
   justify-content: center;
   align-items: center;
   content: "YOU DID IT!";
-  transition: 2s ease; }
+  transition: all 2s ease; }
 
 .gameover:after {
+  z-index: 1;
+  opacity: 1;
   font: bolder 2em helvetica;
   color: #fff;
   position: absolute;
@@ -852,7 +872,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  content: "GAME OVER"; }
+  content: "GAME OVER";
+  transition: all 2s ease; }
 
 @media only screen and (min-width: 770px) {
   .gameboard {
