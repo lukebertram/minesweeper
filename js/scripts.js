@@ -1,6 +1,5 @@
 //logic maths & computational nitty gritty
 
-
 // Game object constructor
 var Game = function(root, size, numMines){
   this.size = size;
@@ -61,11 +60,12 @@ var Gameboard = function(boardElement, boardSize, numMines){
   this.drawBoard();
 };
 
+
 Gameboard.prototype.drawBoard = function(){
   var ctx = this;
   ctx.boardElement.empty();
   //set the board dimension in css grid
-  var boardWidthPx = ctx.boardSize * TILE_WIDTH_PX + 2;
+  var boardWidthPx = ctx.boardSize * tileWidthPx + 2;
   ctx.boardElement.css({
     'width': boardWidthPx ,
     'grid-template': 'repeat('+ ctx.boardSize +', 1fr) / repeat ('+ ctx.boardSize +', 1fr)'
@@ -75,8 +75,8 @@ Gameboard.prototype.drawBoard = function(){
     // ctx.boardData[i] = new Array(ctx.boardSize);
     for (j = 0; j < ctx.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile-space" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
-                        '<div class="tile" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
+      tileElement = $('<div class="tile-space" style="width: '+ tileWidthPx +'px; height: '+ tileWidthPx + 'px;">' +
+                        '<div class="tile" style="width: '+ tileWidthPx +'px; height: '+ tileWidthPx + 'px;">' +
                           '<div class="tile-front"></div>' +
                           '<div class="tile-back"></div>' +
                         '</div>' +
@@ -287,14 +287,39 @@ var chainFlip = function(tile, delayCount){
   myGame.remainingTiles--;
 }
 
+
 //GLOBAL VARIABLES
 const DEFAULT_BOARD_SIZE = 5;
-const TILE_WIDTH_PX = 50;
+const DEFAULT_NUMBER_OF_MINES = 5;
+const DEFAULT_TILE_WIDTH_PX = 70;
+var tileWidthPx = DEFAULT_TILE_WIDTH_PX;
+
+// define media query for medium and large desktop sizes
+
+var setTileWidth = function(tilesInBoard){
+  var vw = window.innerWidth;
+  var vh = window.innerHeight;
+  var vmin = ((vw < vh) ? vw : vh);
+  var mqLarge = window.matchMedia("(min-width: 1200px)");
+  var mqTablet = window.matchMedia("(min-width: 770px)");
+  if (mqLarge.matches){
+
+    vmin = 0.5 * vmin;
+
+  }else if (mqTablet.matches){
+    vmin = 0.6 * vmin;
+  } else {
+    vmin = 0.9 * vmin;
+  }
+
+  tileWidthPx = Math.floor(vmin / tilesInBoard);
+};
 var myGame;
 
 //jquerey
 $(function(){
-  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE, 1);
+  setTileWidth(DEFAULT_BOARD_SIZE);
+  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE, DEFAULT_NUMBER_OF_MINES);
 
   $('#game-settings').submit(function(event){
     event.preventDefault();
@@ -322,6 +347,7 @@ $(function(){
         size = 5;
         numMines = 5;
     }
+    setTileWidth(size);
     myGame = new Game($('#minesweeper1'), size, numMines);
     $('#mine-count').text(numMines);
   });
