@@ -2,10 +2,11 @@
 
 
 // Game object constructor
-var Game = function(root, size){
+var Game = function(root, size, numMines){
   this.size = size;
+  this.numMines = numMines;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), size, 10); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, numMines); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -241,11 +242,15 @@ var chainFlip = function(tile, delayCount){
   //get array of tiles surrounding tileElement
   var neighbors = myGame.board.getNeighborTiles(tile);
   console.log("tile "+tile.x + " " + tile.y + " has "+neighbors.length+" neighbors");
-  //for each tile in array
-  for (var i = 0; i < neighbors.length; i++) {
-    //if tile is empty, call chainFlip on that tile
-    if (!neighbors[i].isMine && !neighbors[i].recursed){
-      chainFlip(neighbors[i], delay+1);
+
+  //initiate further flips only if this tile is empty
+  if (tile.isEmpty){
+    //for each tile in array
+    for (var i = 0; i < neighbors.length; i++) {
+      //if tile is empty, call chainFlip on that tile
+      if (!neighbors[i].isMine && !neighbors[i].recursed){
+        chainFlip(neighbors[i], delay+1);
+      }
     }
   }
 
@@ -268,13 +273,36 @@ var myGame;
 
 //jquerey
 $(function(){
-  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE);
-  // myGame.drawBoard();
+  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE, DEFAULT_BOARD_SIZE);
 
   $('#game-settings').submit(function(event){
     event.preventDefault();
-    var size = $('#board-size').val();
-    myGame = new Game($('#minesweeper1'), size);
+    var size, numMines;
+    var difficulty = $('#difficulty').val();
+    //set board size and number of mines according to difficulty
+    switch (difficulty) {
+      case "beginner":
+        size = 5;
+        numMines = 5;
+        break;
+      case "intermediate":
+        size = 9;
+        numMines = 20;
+        break;
+      case "advanced":
+        size = 12;
+        numMines = 40;
+        break;
+      case "ridiculous":
+        size = 20;
+        numMines = 133;
+        break;
+      default:
+        size = 5;
+        numMines = 5;
+    }
+    myGame = new Game($('#minesweeper1'), size, numMines);
+    $('#mine-count').text(numMines);
   });
 
   $('#theme-selector').submit(function(event){
