@@ -4,8 +4,24 @@
   margin: 4% 0 8% 0;
   border: $gameboard-border;
 }
-
+.victory:after{
+  font: $gameover-font;
+  color: $victory-color;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "YOU DID IT!";
+  transition: 2s ease;
+}
 .gameover:after{
+  font: $gameover-font;
+  color: $gameover-color;
   position: absolute;
   left: 0;
   top: 0;
