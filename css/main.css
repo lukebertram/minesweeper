@@ -94,8 +94,7 @@ header {
     background-color: #00A878;
     border-style: solid;
     border-width: medium;
-    border-color: #f3c178;
-    border-radius: 0 0 10% 10%; }
+    border-color: #f3c178; }
     .theme1 header h1 {
       text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
       letter-spacing: 5px; }
@@ -145,8 +144,7 @@ header {
     background-color: #2e151b;
     border-style: solid;
     border-width: medium;
-    border-color: #da7b93;
-    border-radius: 0 0 10% 10%; }
+    border-color: #da7b93; }
     .theme3 header h1 {
       text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
       letter-spacing: 5px; }
@@ -730,41 +728,46 @@ header {
 
 .user-controls {
   width: 100%;
+  display: flex; }
+
+.forms {
+  width: 100%;
   padding: 5% 0;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   margin: 0; }
-  .user-controls > form {
+  .forms > form {
     text-align: center; }
-    .user-controls > form:nth-child(2) {
+    .forms > form:nth-child(2) {
       margin-top: 5%; }
 
 @media only screen and (min-width: 770px) {
   .user-controls {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3.5%;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 70%;
-    margin-bottom: 130px; }
-    .user-controls > form:first-child {
-      margin-right: 5%;
-      margin-top: 0; }
-    .user-controls > form:nth-child(2) {
-      margin-left: 10%;
-      margin-top: 0; } }
+    max-width: 70%; }
+    .user-controls .forms {
+      padding: 3.5%;
+      flex-flow: row wrap;
+      justify-content: center;
+      width: 100%; }
+      .user-controls .forms > form:first-child {
+        margin-right: 5%;
+        margin-top: 0; }
+      .user-controls .forms > form:nth-child(2) {
+        margin-left: 10%;
+        margin-top: 0; } }
 @media only screen and (min-width: 1200px) {
   .user-controls {
-    flex-flow: column wrap;
-    justify-content: center;
-    width: 25%;
-    margin: 0 0 0 20px;
-    height: auto; }
-    .user-controls > form:nth-child(2) {
-      margin-top: 55%;
-      margin-left: 0; } }
+    flex-basis: 15%; }
+    .user-controls .forms {
+      padding: 5% 0;
+      flex-flow: column wrap;
+      justify-content: space-around;
+      width: 100%;
+      min-height: 600px; }
+
+  #game-settings, #theme-selector {
+    margin: 0; } }
 footer {
   margin-top: auto;
   background-color: black;
@@ -797,28 +800,27 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10%; }
+  justify-content: center; }
 
 .main-area {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex: 1 0 auto; }
 
 @media only screen and (min-width: 770px) {
   .game {
-    height: 100%;
-    flex-basis: 60%;
-    flex-grow: 1; } }
+    height: auto; } }
 @media only screen and (min-width: 1200px) {
   .game {
     flex-flow: column wrap;
-    padding: 10%; }
+    flex-basis: 55%; }
 
   .main-area {
     display: flex;
-    flex-direction: row-reverse; } }
+    flex-direction: row-reverse;
+    justify-content: space-around; } }
 .gameboard {
   overflow: hidden;
   margin: 4% 0 8% 0;
@@ -846,7 +848,7 @@ button {
     margin: 0; }
   .mines p {
     font-size: 2.5vw;
-    font-family: 'Bungee Hairline', cursive;
+    font-family: 'Bungee', cursive;
     margin: 0; }
   .mines > * {
     text-align: center; }

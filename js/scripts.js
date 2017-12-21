@@ -277,10 +277,10 @@ const mqLarge = window.matchMedia("(min-width: 1200px)");
 console.log(mqMedium);
 console.log(mqLarge);
 if (mqLarge.matches){//window has a minimum width of 1000px
-  var TILE_WIDTH_PX = 100;
+  var TILE_WIDTH_PX = 80;
   console.log(TILE_WIDTH_PX);
 } else if(mqMedium.matches){//window has a minimum width of 770px
-  var TILE_WIDTH_PX = 70;
+  var TILE_WIDTH_PX = 60;
   console.log(TILE_WIDTH_PX);
 } else { //window width is smaller than 770px
   var TILE_WIDTH_PX = 49;

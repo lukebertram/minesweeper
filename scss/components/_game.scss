@@ -2,36 +2,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // padding: 5% 10% 0% 10%;
-  padding: 10%;
+  justify-content: center;
 }
-
 .main-area{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  // height: 100%;
   flex: 1 0 auto;
 }
-
 @media #{$medium}{
   .game{
-    height: 100%;
-    flex-basis: 60%;
-    flex-grow: 1;
+    height: auto;
   }
   .main-area{
   }
 }
-
 @media #{$large}{
   .game{
     flex-flow: column wrap;
-    padding: 10%;
-
+    flex-basis: 55%;
+    // border: 3px palevioletred solid;
   }
   .main-area{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-around;
   }
 }
