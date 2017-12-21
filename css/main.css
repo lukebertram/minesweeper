@@ -871,7 +871,10 @@ button {
     .tile-space .tile .tile-back {
       transform: rotateY(180deg);
       background-size: contain;
-      background-position: center; }
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
     .tile-space .tile .tile-front, .tile-space .tile .tile-back {
       backface-visibility: hidden;
       position: absolute;
@@ -884,6 +887,9 @@ button {
     background-image: url("../img/flag.png"); }
   .tile-space.show-mine .tile-back {
     background-image: url("../img/bomb.png"); }
+
+.tile-value {
+  user-select: none; }
 
 .select {
   min-width: 100px;
