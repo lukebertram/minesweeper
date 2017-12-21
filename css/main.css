@@ -957,7 +957,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    content: "YOU DID IT!";
+    content: "IT BEGINS";
     transition: all 2s ease; }
 
 .victory:after {
