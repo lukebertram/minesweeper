@@ -242,11 +242,15 @@ var chainFlip = function(tile, delayCount){
   //get array of tiles surrounding tileElement
   var neighbors = myGame.board.getNeighborTiles(tile);
   console.log("tile "+tile.x + " " + tile.y + " has "+neighbors.length+" neighbors");
-  //for each tile in array
-  for (var i = 0; i < neighbors.length; i++) {
-    //if tile is empty, call chainFlip on that tile
-    if (!neighbors[i].isMine && !neighbors[i].recursed){
-      chainFlip(neighbors[i], delay+1);
+
+  //initiate further flips only if this tile is empty
+  if (tile.isEmpty){
+    //for each tile in array
+    for (var i = 0; i < neighbors.length; i++) {
+      //if tile is empty, call chainFlip on that tile
+      if (!neighbors[i].isMine && !neighbors[i].recursed){
+        chainFlip(neighbors[i], delay+1);
+      }
     }
   }
 
@@ -269,8 +273,7 @@ var myGame;
 
 //jquerey
 $(function(){
-  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE);
-  // myGame.drawBoard();
+  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE, DEFAULT_BOARD_SIZE);
 
   $('#game-settings').submit(function(event){
     event.preventDefault();
