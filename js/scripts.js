@@ -277,8 +277,32 @@ $(function(){
 
   $('#game-settings').submit(function(event){
     event.preventDefault();
-    var size = $('#board-size').val();
-    myGame = new Game($('#minesweeper1'), size);
+    var size, numMines;
+    var difficulty = $('#difficulty').val();
+    //set board size and number of mines according to difficulty
+    switch (difficulty) {
+      case "beginner":
+        size = 5;
+        numMines = 5;
+        break;
+      case "intermediate":
+        size = 9;
+        numMines = 20;
+        break;
+      case "advanced":
+        size = 12;
+        numMines = 40;
+        break;
+      case "ridiculous":
+        size = 20;
+        numMines = 133;
+        break;
+      default:
+        size = 5;
+        numMines = 5;
+    }
+    myGame = new Game($('#minesweeper1'), size, numMines);
+    $('#mine-count').text(numMines);
   });
 
   $('#theme-selector').submit(function(event){
