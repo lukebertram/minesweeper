@@ -2,10 +2,11 @@
 
 
 // Game object constructor
-var Game = function(root, size){
+var Game = function(root, size, numMines){
   this.size = size;
+  this.numMines = numMines;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), size, 10); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, numMines); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
