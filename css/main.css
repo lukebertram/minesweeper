@@ -755,7 +755,7 @@ header {
     .user-controls > form:nth-child(2) {
       margin-left: 10%;
       margin-top: 0; } }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1200px) {
   .user-controls {
     flex-flow: column wrap;
     justify-content: center;
@@ -811,7 +811,7 @@ button {
     height: 100%;
     flex-basis: 60%;
     flex-grow: 1; } }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1200px) {
   .game {
     flex-flow: column wrap;
     padding: 10%; }

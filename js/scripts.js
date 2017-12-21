@@ -1,6 +1,5 @@
 //logic maths & computational nitty gritty
 
-
 // Game object constructor
 var Game = function(root, size){
   this.size = size;
@@ -43,6 +42,7 @@ var Gameboard = function(boardElement, boardSize, numMines){
   }
   this.drawBoard();
 };
+
 
 Gameboard.prototype.drawBoard = function(){
   var ctx = this;
@@ -261,9 +261,28 @@ var chainFlip = function(tile, delayCount){
 
 }
 
+
 //GLOBAL VARIABLES
 const DEFAULT_BOARD_SIZE = 5;
-const TILE_WIDTH_PX = 50;
+
+// define media query for medium and large desktop sizes
+const mqMedium = window.matchMedia("(min-width: 770px)");
+const mqLarge = window.matchMedia("(min-width: 1200px)");
+//set tile width based on window size
+console.log(mqMedium);
+console.log(mqLarge);
+if (mqLarge.matches){//window has a minimum width of 1000px
+  var TILE_WIDTH_PX = 100;
+  console.log(TILE_WIDTH_PX);
+} else if(mqMedium.matches){//window has a minimum width of 770px
+  var TILE_WIDTH_PX = 70;
+  console.log(TILE_WIDTH_PX);
+} else { //window width is smaller than 770px
+  var TILE_WIDTH_PX = 49;
+  console.log(TILE_WIDTH_PX);
+}
+
+
 var myGame;
 
 //jquerey
