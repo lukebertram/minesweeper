@@ -5,7 +5,7 @@
 var Game = function(root, size){
   this.size = size;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), size, 1); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, 10); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -204,7 +204,7 @@ var setClickListener = function(tileSpaceElement, boardData){
           //if the tile's numerical value is not empty
           if (!boardData[x][y].isEmpty){
             //add a span containing the tile's numerical value
-            tileSpaceElement.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
+            tileBack.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
             tileSpaceElement.addClass('clicked');
           }
           //otherwise, initiate recursive tile reveal
@@ -249,10 +249,11 @@ var chainFlip = function(tile, delayCount){
     }
   }
 
-  //set this tile's animation delay
+  //if the tile has a number value and that value hasn't been added to its tile-back yet
   if (!tile.isEmpty){
     //add a span containing the tile's numerical value
-    tile.element.append('<span class="tile-value">'+ tile.tileValue +'</span>');
+    tile.element.find('.tile-back').empty();
+    tile.element.find('.tile-back').append('<span class="tile-value">'+ tile.tileValue +'</span>');
   }
   setTimeout(function(){
     tile.element.addClass('clicked');
@@ -261,7 +262,7 @@ var chainFlip = function(tile, delayCount){
 }
 
 //GLOBAL VARIABLES
-const DEFAULT_BOARD_SIZE = 3;
+const DEFAULT_BOARD_SIZE = 5;
 const TILE_WIDTH_PX = 50;
 var myGame;
 
