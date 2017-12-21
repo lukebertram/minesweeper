@@ -49,7 +49,7 @@ Gameboard.prototype.drawBoard = function(){
   var ctx = this;
   ctx.boardElement.empty();
   //set the board dimension in css grid
-  var boardWidthPx = ctx.boardSize * TILE_WIDTH_PX + 2;
+  var boardWidthPx = ctx.boardSize * tileWidthPx + 2;
   ctx.boardElement.css({
     'width': boardWidthPx ,
     'grid-template': 'repeat('+ ctx.boardSize +', 1fr) / repeat ('+ ctx.boardSize +', 1fr)'
@@ -59,8 +59,8 @@ Gameboard.prototype.drawBoard = function(){
     // ctx.boardData[i] = new Array(ctx.boardSize);
     for (j = 0; j < ctx.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile-space" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
-                        '<div class="tile" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
+      tileElement = $('<div class="tile-space" style="width: '+ tileWidthPx +'px; height: '+ tileWidthPx + 'px;">' +
+                        '<div class="tile" style="width: '+ tileWidthPx +'px; height: '+ tileWidthPx + 'px;">' +
                           '<div class="tile-front"></div>' +
                           '<div class="tile-back"></div>' +
                         '</div>' +
@@ -269,47 +269,48 @@ var chainFlip = function(tile, delayCount){
 
 //GLOBAL VARIABLES
 const DEFAULT_BOARD_SIZE = 5;
+const DEFAULT_NUMBER_OF_MINES = 5;
+const DEFAULT_TILE_WIDTH_PX = 70;
+var tileWidthPx = DEFAULT_TILE_WIDTH_PX;
 
 // define media query for medium and large desktop sizes
-const mqMedium = window.matchMedia("(min-width: 770px)");
-const mqLarge = window.matchMedia("(min-width: 1200px)");
-//set tile width based on window size
+var mqMedium = window.matchMedia("(min-width: 770px)");
+var mqLarge = window.matchMedia("(min-width: 1200px)");
+// set tile width based on window size
 console.log(mqMedium);
 console.log(mqLarge);
-if (mqLarge.matches){//window has a minimum width of 1000px
-  var TILE_WIDTH_PX = 80;
-  console.log(TILE_WIDTH_PX);
+if (mqLarge.matches){//window has a minimum width of 1200px
+  var tileWidth = 70;
+  console.log(tileWidth);
 } else if(mqMedium.matches){//window has a minimum width of 770px
-  var TILE_WIDTH_PX = 60;
-  console.log(TILE_WIDTH_PX);
-} else { //window width is smaller than 770px
-  var TILE_WIDTH_PX = 49;
-  console.log(TILE_WIDTH_PX);
+  var tileWidth = 50;
+  console.log(tileWidth);
+}
+else { //window width is smaller than 770px
+  var tileWidth = 29;
+  console.log(tileWidth);
 }
 
-// var tileSize = function(){
-//   var mqMedium = window.matchMedia("(min-width: 770px)");
-//   var mqLarge = window.matchMedia("(min-width: 1200px)");
-//   console.log(mqMedium);
-//   console.log(mqLarge);
-//   if (mqLarge.matches){//window has a minimum width of 1000px
-//     var TILE_WIDTH_PX = 100;
-//     console.log(TILE_WIDTH_PX);
-//   } else if(mqMedium.matches){//window has a minimum width of 770px
-//     var TILE_WIDTH_PX = 70;
-//     console.log(TILE_WIDTH_PX);
-//   } else { //window width is smaller than 770px
-//     var TILE_WIDTH_PX = 49;
-//     console.log(TILE_WIDTH_PX);
-//   }
-// }
-// tileSize();
+var setTileWidth = function(tilesInBoard){
+  var vw = window.innerWidth;
+  var mqLarge = window.matchMedia("(min-width: 1200px)");
+  var mqTablet = window.matchMedia("(min-width: 770px)");
+  if (mqLarge.matches){
+    vw = vw * 0.5;
+  }else if (mqTablet.matches){
+    vw = 0.6 * vw;
+  } else {
+    vw = 0.9 * vw;
+  }
+  tileWidthPx = Math.floor(vw / tilesInBoard);
 
+};
 var myGame;
 
 //jquerey
 $(function(){
-  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE, DEFAULT_BOARD_SIZE);
+  setTileWidth(DEFAULT_BOARD_SIZE);
+  myGame = new Game($('#minesweeper1'), DEFAULT_BOARD_SIZE, DEFAULT_NUMBER_OF_MINES);
 
   $('#game-settings').submit(function(event){
     event.preventDefault();
@@ -337,6 +338,7 @@ $(function(){
         size = 5;
         numMines = 5;
     }
+    setTileWidth(size);
     myGame = new Game($('#minesweeper1'), size, numMines);
     $('#mine-count').text(numMines);
   });
