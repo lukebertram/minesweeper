@@ -7,9 +7,14 @@
   .default button {
     background-color: #226CE0;
     color: #86BBD8;
-    font-family: sans-serif; }
+    font-family: "Exo";
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #102E4A, 2px 2px 0px #102E4A; }
   .default .user-controls {
     background-color: #F03A47; }
+    .default .user-controls label {
+      color: #102E4A;
+      font-weight: bold; }
   .default .tile-space .tile .tile-front {
     background-color: #86BBD8;
     box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
@@ -24,7 +29,8 @@
     background-color: #c7e1c8;
     border: 1px solid #102E4A; }
   .default p {
-    color: #102E4A; }
+    color: #102E4A;
+    font-weight: bold; }
   .default select {
     background-color: white; }
   .default h1, .default h2, .default h3 {
@@ -33,8 +39,7 @@
     background-color: #F03A47;
     border-style: solid;
     border-width: medium;
-    border-color: #A5D0A8;
-    border-radius: 0 0 10% 10%; }
+    border-color: #A5D0A8; }
     .default header h1 {
       text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
       letter-spacing: 5px; }
@@ -52,6 +57,15 @@
   .default .gameboard {
     box-shadow: 7px 7px 3px 0px #102E4A;
     border: 1px solid black; }
+  .default #luke-git:hover {
+    background-color: #F03A47;
+    border-radius: 50%; }
+  .default #sailor-git:hover {
+    background-color: #226CE0;
+    border-radius: 50%; }
+  .default #holly-git:hover {
+    background-color: #86BBD8;
+    border-radius: 50%; }
 
 .theme1 {
   background-color: #F35e41; }
@@ -62,9 +76,14 @@
   .theme1 button {
     background-color: #F35e41;
     color: #D8f1a0;
-    font-family: "Bungee Inline"; }
+    font-family: "Bungee Inline";
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #0B0500, 2px 2px 0px #0B0500; }
   .theme1 .user-controls {
     background-color: #00A878; }
+    .theme1 .user-controls label {
+      color: #0B0500;
+      font-weight: bold; }
   .theme1 .tile-space .tile .tile-front {
     background-color: #D8f1a0;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
@@ -79,7 +98,8 @@
     background-color: #f7d7a7;
     border: 1px solid #0B0500; }
   .theme1 p {
-    color: #0B0500; }
+    color: #0B0500;
+    font-weight: bold; }
   .theme1 select {
     background-color: white; }
   .theme1 h1, .theme1 h2, .theme1 h3 {
@@ -106,51 +126,135 @@
   .theme1 .gameboard {
     box-shadow: 7px 7px 3px 0px #0B0500;
     border: 1px solid black; }
+  .theme1 #luke-git:hover {
+    background-color: #00A878;
+    border-radius: 50%; }
+  .theme1 #sailor-git:hover {
+    background-color: #F35e41;
+    border-radius: 50%; }
+  .theme1 #holly-git:hover {
+    background-color: #D8f1a0;
+    border-radius: 50%; }
+
+.theme2 {
+  background-color: #414288; }
+  .theme2 .how-to-content h1 {
+    color: #BE6E46; }
+  .theme2 .how-to-content #close-howto {
+    color: #414288; }
+  .theme2 button {
+    background-color: #414288;
+    color: #BFC3BA;
+    font-family: "Bungee Inline";
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #31322D, 2px 2px 0px #31322D; }
+  .theme2 .user-controls {
+    background-color: #BE6E46; }
+    .theme2 .user-controls label {
+      color: #31322D;
+      font-weight: bold; }
+  .theme2 .tile-space .tile .tile-front {
+    background-color: #BFC3BA;
+    box-shadow: inset 0px -1px 1px #31322D, inset 0px 1px 1px #31322D;
+    border: 1px solid black; }
+  .theme2 .tile-space .tile .tile-back {
+    background-color: #AFD2E9;
+    box-shadow: inset 0px -1px 1px #31322D, inset 0px 1px 1px #31322D;
+    border: 1px solid black; }
+  .theme2 .tile-space.clicked {
+    background-color: #31322D; }
+  .theme2 .selected {
+    background-color: #d7e9f4;
+    border: 1px solid #31322D; }
+  .theme2 p {
+    color: #31322D;
+    font-weight: bold; }
+  .theme2 select {
+    background-color: white; }
+  .theme2 h1, .theme2 h2, .theme2 h3 {
+    color: #9596cd; }
+  .theme2 header {
+    background-color: #BE6E46;
+    border-style: solid;
+    border-width: medium;
+    border-color: #AFD2E9; }
+    .theme2 header h1 {
+      text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      letter-spacing: 5px; }
+  .theme2 #question-mark {
+    color: #BFC3BA;
+    border-color: #AFD2E9; }
+  .theme2 .mines {
+    background-color: #ebf4fa;
+    border-radius: 25%;
+    border-style: double;
+    border-color: #BE6E46;
+    border-width: 5px; }
+    .theme2 .mines h1 {
+      color: #BE6E46; }
+  .theme2 .gameboard {
+    box-shadow: 7px 7px 3px 0px #31322D;
+    border: 1px solid black; }
+  .theme2 #luke-git:hover {
+    background-color: #BE6E46;
+    border-radius: 50%; }
+  .theme2 #sailor-git:hover {
+    background-color: #414288;
+    border-radius: 50%; }
+  .theme2 #holly-git:hover {
+    background-color: #BFC3BA;
+    border-radius: 50%; }
 
 .theme3 {
-  background-color: #2f4454; }
+  background-color: #3e7577; }
   .theme3 .how-to-content h1 {
     color: #2e151b; }
   .theme3 .how-to-content #close-howto {
-    color: #2f4454; }
+    color: #3e7577; }
   .theme3 button {
-    background-color: #2f4454;
-    color: #1c3334;
-    font-family: "Bungee Inline"; }
+    background-color: #3e7577;
+    color: #2f4454;
+    font-family: "Bungee Inline";
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #c4ffef, 2px 2px 0px #c4ffef; }
   .theme3 .user-controls {
     background-color: #2e151b; }
+    .theme3 .user-controls label {
+      color: #c4ffef;
+      font-weight: bold; }
   .theme3 .tile-space .tile .tile-front {
-    background-color: #1c3334;
-    box-shadow: inset 0px -1px 1px #376e5f, inset 0px 1px 1px #376e5f;
+    background-color: #2f4454;
+    box-shadow: inset 0px -1px 1px #c4ffef, inset 0px 1px 1px #c4ffef;
     border: 1px solid black; }
   .theme3 .tile-space .tile .tile-back {
-    background-color: #da7b93;
-    box-shadow: inset 0px -1px 1px #376e5f, inset 0px 1px 1px #376e5f;
+    background-color: #a84b63;
+    box-shadow: inset 0px -1px 1px #c4ffef, inset 0px 1px 1px #c4ffef;
     border: 1px solid black; }
   .theme3 .tile-space.clicked {
-    background-color: #376e5f; }
+    background-color: #c4ffef; }
   .theme3 .selected {
-    background-color: #e5a3b4;
-    border: 1px solid #376e5f; }
+    background-color: #bc6a7f;
+    border: 1px solid #c4ffef; }
   .theme3 p {
-    color: #376e5f; }
+    color: #c4ffef;
+    font-weight: bold; }
   .theme3 select {
     background-color: white; }
   .theme3 h1, .theme3 h2, .theme3 h3 {
-    color: #6e92ae; }
+    color: #8bc1c3; }
   .theme3 header {
     background-color: #2e151b;
     border-style: solid;
     border-width: medium;
-    border-color: #da7b93; }
+    border-color: #a84b63; }
     .theme3 header h1 {
       text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
       letter-spacing: 5px; }
   .theme3 #question-mark {
-    color: #1c3334;
-    border-color: #da7b93; }
+    color: #2f4454;
+    border-color: #a84b63; }
   .theme3 .mines {
-    background-color: #ebb7c4;
+    background-color: #c47b8e;
     border-radius: 25%;
     border-style: double;
     border-color: #2e151b;
@@ -158,8 +262,17 @@
     .theme3 .mines h1 {
       color: #2e151b; }
   .theme3 .gameboard {
-    box-shadow: 7px 7px 3px 0px #376e5f;
+    box-shadow: 7px 7px 3px 0px #c4ffef;
     border: 1px solid black; }
+  .theme3 #luke-git:hover {
+    background-color: #2e151b;
+    border-radius: 50%; }
+  .theme3 #sailor-git:hover {
+    background-color: #3e7577;
+    border-radius: 50%; }
+  .theme3 #holly-git:hover {
+    background-color: #2f4454;
+    border-radius: 50%; }
 
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -602,7 +715,6 @@ body {
  * Basic typography style for copy text
  */
 body {
-  color: #102E4A;
   font: normal 125%/1.4 "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 h1 {
@@ -780,7 +892,8 @@ footer {
   flex-shrink: 0;
   flex-flow: column wrap;
   align-items: center;
-  color: lightgrey; }
+  color: lightgrey;
+  padding-bottom: 10px; }
   footer ul {
     margin: 0;
     list-style: none;
@@ -789,7 +902,7 @@ footer {
     justify-content: space-around;
     padding: 0; }
   footer li {
-    margin: 0;
+    margin: 0 10px;
     display: flex; }
 
 button {
@@ -798,7 +911,6 @@ button {
   border: 3px solid #fff;
   border-radius: 2%;
   margin-top: 10px;
-  text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
   letter-spacing: 10px; }
 
 .game {
@@ -853,6 +965,7 @@ button {
   opacity: 1;
   font: bolder 2em helvetica;
   color: #fff;
+  background-image: url(../img/source.gif);
   position: absolute;
   left: 0;
   top: 0;
@@ -899,7 +1012,8 @@ button {
     margin: 0; }
   .mines p {
     font-size: 2.5vw;
-    font-family: 'Bungee', cursive;
+    font-family: sans-serif;
+    font-weight: bold;
     margin: 0; }
   .mines > * {
     text-align: center; }

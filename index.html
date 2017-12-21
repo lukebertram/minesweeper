@@ -3,6 +3,7 @@
   <head>
     <script src="js/jquery-3.2.1.js" charset="utf-8"></script>
     <script src="js/scripts.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Shade|Open+Sans" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
     <link rel="stylesheet" href="css/main.css">
@@ -14,9 +15,10 @@
       <div class="how-to-content">
         <h1>How to Play:</h1>
         <ul>
-          <li>Click the tiles to sniff out mines.</li>
-          <li>Click all unmined tiles to win.</li>
-          <li>Be careful not to click on a mine!</li>
+          <li>Click the tiles to uncover a square. (But if you click on a mine, you lose the game!)</li>
+          <li>Right-click to place a flag where you think a mine will be found.</li>
+          <li>If a tile contains a number, that tells you how many mines are located in the neighboring tiles.</li>
+          <li>To win, uncover all the tiles witout clicking on a mine.</li>
         </ul>
         <div id="close-howto"><i class="fa fa-window-close fa-3x"></i></div>
       </div>
@@ -51,26 +53,28 @@
               <button type="submit" id="newGame">New Game</button>
             </form>
 
-            <form id="theme-selector">
-              <div class="form-group">
-                <label>Game Theme</label>
-                <select id="theme-choice" class="select" name="size">
-                  <option value="1">Holly</option>
-                  <option value="2">Luke</option>
-                  <option value="3">Sailor</option>
-                </select>
-              </div>
-              <button type="submit" id="theme-selector">New Theme</button>
-            </form>
-          </div><!-- forms -->
-        </div><!-- user-controls -->
+          <form id="theme-selector">
+            <div class="form-group">
+              <label>Game Theme</label>
+              <select id="theme-choice" class="select" name="size">
+                <option value="1">Holly</option>
+                <option value="2">Luke</option>
+                <option value="3">Sailor</option>
+                <option value="4">Default</option>
+              </select>
+            </div>
+            <button type="submit" id="theme-selector">New Theme</button>
+          </form>
+
+        </div>
       </div><!-- main-area -->
+
     <footer>
       <h6>Minesweeper is a project by Luke, Holly, and Sailor.</h6>
       <ul>
-        <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
-        <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
-        <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
+        <li><a href="https://github.com/lukebertram"><img src="img/GitHub-Mark-Light-64px.png" alt="Github for Luke" target="_blank" id="luke-git"></a></li>
+        <li><a href="https://github.com/sailor27"><img src="img/GitHub-Mark-Light-64px.png" alt="Github for Sailor" target="_blank" id="sailor-git"></a></li>
+        <li><a href="https://github.com/hollywilkalis"><img src="img/GitHub-Mark-Light-64px.png" alt="Github for Holly" target="_blank" id="holly-git"></a></li>
       </ul>
     </footer>
   </body>

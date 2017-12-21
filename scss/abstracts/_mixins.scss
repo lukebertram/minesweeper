@@ -61,10 +61,16 @@ $theme-font: sans-serif;
       background-color: $secondary;
       color: $accent1;
       font-family: $theme-font;
+      font-weight: bold;
+      text-shadow: 2px 2px 0px $color-text, 2px 2px 0px $color-text;
     }
 
     .user-controls{
       background-color: $primary;
+      label {
+        color: $color-text;
+        font-weight: bold;
+      }
 
       // box-shadow: 7px 7px 3px 0px $text-color;
     }
@@ -95,6 +101,7 @@ $theme-font: sans-serif;
 
     p {
       color: $color-text;
+      font-weight: bold;
     }
 
     select {
@@ -110,7 +117,6 @@ $theme-font: sans-serif;
       border-style: solid;
       border-width: medium;
       border-color: $accent2;
-      // border-radius: 0 0 10% 10%;
 
       h1{
         text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
@@ -139,9 +145,25 @@ $theme-font: sans-serif;
       box-shadow: 7px 7px 3px 0px $color-text;
       border: $tile-border;
     }
+
+
+    #luke-git:hover {
+      background-color: $primary;
+      border-radius: 50%;
+    }
+
+    #sailor-git:hover {
+      background-color: $secondary;
+      border-radius: 50%;
+    }
+    #holly-git:hover {
+      background-color: $accent1;
+      border-radius: 50%;
+    }
   }
 }
 
-@include theme(default, #F03A47, #226CE0, #86BBD8, #A5D0A8, #102E4A, sans-serif);
+@include theme(default, #F03A47, #226CE0, #86BBD8, #A5D0A8, #102E4A, 'Exo');
 @include theme(theme1, #00A878, #F35e41, #D8f1a0, #f3c178, #0B0500, 'Bungee Inline');
-@include theme(theme3, #2e151b, #2f4454, #1c3334, #da7b93, #376e5f, 'Bungee Inline');
+@include theme(theme2, #BE6E46, #414288, #BFC3BA, #AFD2E9, #31322D, 'Bungee Inline');
+@include theme(theme3, #2e151b, #3e7577, #2f4454, #a84b63, #c4ffef, 'Bungee Inline');
