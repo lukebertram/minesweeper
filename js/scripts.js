@@ -76,13 +76,11 @@ Gameboard.prototype.drawBoard = function(){
 }
 
 Gameboard.prototype.setMines = function(){
-  var i, minesPlanted = 0, x, y;
-
+  var minesPlanted = 0;
   //randomly place amount of mines equal to 'numMines'
   while (minesPlanted < this.numMines) {
-    x = getRandomInt(this.boardSize);
-    y = getRandomInt(this.boardSize);
-
+    var x = getRandomInt(this.boardSize);
+    var y = getRandomInt(this.boardSize);
     if (!this.boardData[x][y].isMine){
       this.boardData[x][y].setMine(true);
       minesPlanted++;
@@ -191,7 +189,7 @@ var setClickListener = function(tileSpaceElement, boardData){
 
         //toggle clicked and add tileValue to tile's 'tile-front' div in the DOM
       } else if (!tileSpaceElement.hasClass('clicked')){
-          if (!boardData[x][y].isEmpty){
+          if (!boardData[x][y].isEmpty){ //this one can be deleted and it still works!
             tileBack.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
           }
           tileSpaceElement.addClass('clicked');
