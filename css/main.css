@@ -820,14 +820,22 @@ button {
     display: flex;
     flex-direction: row-reverse; } }
 .gameboard {
+  position: relative;
   overflow: hidden;
   margin: 4% 0 8% 0;
   border: 1px solid black; }
 
-.grid-gameboard {
-  margin-top: 50px;
-  border: 1px solid black;
-  display: grid; }
+.gameover:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "GAME OVER"; }
 
 @media only screen and (min-width: 770px) {
   .gameboard {

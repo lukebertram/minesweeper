@@ -1,16 +1,21 @@
 .gameboard{
+  position: relative;
   overflow: hidden;
   margin: 4% 0 8% 0;
   border: $gameboard-border;
-  // display: grid;
 }
 
-// not in use
-.grid-gameboard{
-  margin-top: 50px;
-  border: $gameboard-border;
-  display: grid;
-  // grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+.gameover:after{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "GAME OVER";
 }
 
 @media #{$medium}{
