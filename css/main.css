@@ -1,70 +1,64 @@
-body {
+.default {
   background-color: #226CE0; }
-
-button {
-  background-color: #226CE0;
-  color: #86BBD8;
-  font-family: sans-serif; }
-
-.user-controls {
-  background-color: #F03A47;
-  border-style: solid;
-  border-width: medium;
-  border-color: #A5D0A8;
-  box-shadow: 3px 3px 3px 0px #102E4A; }
-
-.tile-space .tile .tile-front {
-  background-color: #86BBD8;
-  box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
-  border: 1px solid black; }
-.tile-space .tile .tile-back {
-  background-color: #A5D0A8;
-  box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
-  border: 1px solid black; }
-.tile-space.clicked {
-  background-color: #102E4A; }
-
-.selected {
-  background-color: #c7e1c8;
-  border: 1px solid #102E4A; }
-
-p {
-  color: #102E4A; }
-
-select {
-  background-color: white; }
-
-h1, h2, h3 {
-  color: #a8c5f3; }
-
-header {
-  background-color: #F03A47;
-  border-style: solid;
-  border-width: medium;
-  border-color: #A5D0A8;
-  border-radius: 0 0 10% 10%; }
-  header h1 {
-    text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
-    letter-spacing: 10px; }
-
-#question-mark {
-  color: #86BBD8;
-  border-color: #A5D0A8; }
-
-.mines {
-  background-color: #d7ead9;
-  border-radius: 25%;
-  border-style: double;
-  border-color: #F03A47;
-  border-width: 5px; }
-  .mines h1 {
+  .default .how-to-content h1 {
     color: #F03A47; }
-
-.gameboard {
-  box-shadow: 7px 7px 3px 0px #102E4A; }
+  .default .how-to-content #close-howto {
+    color: #226CE0; }
+  .default button {
+    background-color: #226CE0;
+    color: #86BBD8;
+    font-family: sans-serif; }
+  .default .user-controls {
+    background-color: #F03A47; }
+  .default .tile-space .tile .tile-front {
+    background-color: #86BBD8;
+    box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
+    border: 1px solid black; }
+  .default .tile-space .tile .tile-back {
+    background-color: #A5D0A8;
+    box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
+    border: 1px solid black; }
+  .default .tile-space.clicked {
+    background-color: #102E4A; }
+  .default .selected {
+    background-color: #c7e1c8;
+    border: 1px solid #102E4A; }
+  .default p {
+    color: #102E4A; }
+  .default select {
+    background-color: white; }
+  .default h1, .default h2, .default h3 {
+    color: #a8c5f3; }
+  .default header {
+    background-color: #F03A47;
+    border-style: solid;
+    border-width: medium;
+    border-color: #A5D0A8;
+    border-radius: 0 0 10% 10%; }
+    .default header h1 {
+      text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      letter-spacing: 5px; }
+  .default #question-mark {
+    color: #86BBD8;
+    border-color: #A5D0A8; }
+  .default .mines {
+    background-color: #d7ead9;
+    border-radius: 25%;
+    border-style: double;
+    border-color: #F03A47;
+    border-width: 5px; }
+    .default .mines h1 {
+      color: #F03A47; }
+  .default .gameboard {
+    box-shadow: 7px 7px 3px 0px #102E4A;
+    border: 1px solid black; }
 
 .theme1 {
   background-color: #F35e41; }
+  .theme1 .how-to-content h1 {
+    color: #00A878; }
+  .theme1 .how-to-content #close-howto {
+    color: #F35e41; }
   .theme1 button {
     background-color: #F35e41;
     color: #D8f1a0;
@@ -115,6 +109,10 @@ header {
 
 .theme3 {
   background-color: #2f4454; }
+  .theme3 .how-to-content h1 {
+    color: #2e151b; }
+  .theme3 .how-to-content #close-howto {
+    color: #2f4454; }
   .theme3 button {
     background-color: #2f4454;
     color: #1c3334;
@@ -590,7 +588,6 @@ html {
  * Basic styles for links
  */
 a {
-  color: #226CE0;
   text-decoration: none; }
   a:hover, a:active, a:focus {
     color: white;
@@ -688,7 +685,8 @@ header {
   header #question-mark {
     border: 3px solid;
     border-radius: 50%;
-    padding: 0% 3.2%; }
+    padding: 0% 3.2%;
+    cursor: pointer; }
 
 @media only screen and (min-width: 770px) {
   header {
@@ -701,31 +699,38 @@ header {
 #how-to {
   position: fixed;
   display: none;
-  width: 100%;
   height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 2;
-  cursor: pointer; }
+  margin-left: auto; }
 
-.how-to {
+.how-to-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 20%; }
-  .how-to h1 {
+  .how-to-content h1 {
     color: #F03A47; }
-  .how-to ul {
+  .how-to-content ul {
     list-style: circle;
     padding: 0; }
-  .how-to #hide {
-    font-family: sans-serif;
-    color: #226CE0; }
-
+  .how-to-content #close-howto {
+    cursor: pointer;
+    text-align: right;
+    color: #226CE0;
+    animation: roll 3s infinite;
+    transform: rotate(30deg); }
+@keyframes roll {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
 .user-controls {
   width: 100%;
   display: flex; }
@@ -822,14 +827,60 @@ button {
     flex-direction: row-reverse;
     justify-content: space-around; } }
 .gameboard {
+  position: relative;
   overflow: hidden;
   margin: 4% 0 8% 0;
   border: 1px solid black; }
+  .gameboard:after {
+    font: bolder 2em helvetica;
+    color: #fff;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "YOU DID IT!";
+    transition: all 2s ease; }
 
-.grid-gameboard {
-  margin-top: 50px;
-  border: 1px solid black;
-  display: grid; }
+.victory:after {
+  z-index: 1;
+  opacity: 1;
+  font: bolder 2em helvetica;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "YOU DID IT!";
+  transition: all 2s ease; }
+
+.gameover:after {
+  z-index: 1;
+  opacity: 1;
+  font: bolder 2em helvetica;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "GAME OVER";
+  transition: all 2s ease; }
 
 @media only screen and (min-width: 770px) {
   .gameboard {

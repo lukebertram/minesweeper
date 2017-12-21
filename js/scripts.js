@@ -4,9 +4,23 @@
 var Game = function(root, size, numMines){
   this.size = size;
   this.numMines = numMines;
+  this.remainingTiles = (size * size) - numMines;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), size, numMines); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, numMines);
 };
+
+Game.prototype.endGame = function(string){
+  //if string is not empty
+  if (string === "win"){
+    //show victory screen
+    this.board.boardElement.addClass('victory');
+  } else {
+    //reveal all remaining tiles
+
+    //show gameover screen
+    this.board.boardElement.addClass('gameover');
+  }
+}
 
 // Gameboard Tile object constructor
 var Tile = function(element, x, y){
@@ -34,6 +48,8 @@ Tile.prototype.setTileValue = function(num){
 // Gameboard object constructor
 var Gameboard = function(boardElement, boardSize, numMines){
   this.boardElement = boardElement;
+  //remove any gameover classes previously added to gameboard element
+  this.boardElement.attr('class', 'gameboard');
   this.boardSize = boardSize;
   this.numMines = numMines;
   this.boardData = new Array(this.boardSize);
@@ -198,7 +214,7 @@ var setClickListener = function(tileSpaceElement, boardData){
         if (boardData[x][y].isMine)
         {
           tileSpaceElement.addClass('clicked show-mine');
-          alert('you clicked on a mine');
+          myGame.endGame('lose');
 
         //if the clicked tile is not already revealed
         } else if (!tileSpaceElement.hasClass('clicked')){
@@ -207,6 +223,7 @@ var setClickListener = function(tileSpaceElement, boardData){
             //add a span containing the tile's numerical value
             tileBack.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
             tileSpaceElement.addClass('clicked');
+            myGame.remainingTiles--;
           }
           //otherwise, initiate recursive tile reveal
           else {
@@ -214,6 +231,10 @@ var setClickListener = function(tileSpaceElement, boardData){
 
             //recursively flip adjacent empty tiles
             chainFlip(boardData[x][y]);
+          }
+          //if there are no more tiles left to flip, trigger gameover: victory
+          if (myGame.remainingTiles === 0){
+            myGame.endGame('win');
           }
         }
         break;
@@ -252,18 +273,18 @@ var chainFlip = function(tile, delayCount){
         chainFlip(neighbors[i], delay+1);
       }
     }
-  }
-
-  //if the tile has a number value and that value hasn't been added to its tile-back yet
-  if (!tile.isEmpty){
+  //otherwise, if the tile is not empty...
+  } else {
     //add a span containing the tile's numerical value
     tile.element.find('.tile-back').empty();
     tile.element.find('.tile-back').append('<span class="tile-value">'+ tile.tileValue +'</span>');
   }
+  //set this tile to be flipped
   setTimeout(function(){
     tile.element.addClass('clicked');
   }, (75 * delayCount));
-
+  //decrement the game's remainingTiles
+  myGame.remainingTiles--;
 }
 
 
@@ -346,11 +367,14 @@ $(function(){
   });
 
   $("#question-mark").click(function() {
-    $("#how-to").add('horizTranslate');
-    $("#how-to").show();
+    $("#how-to").slideToggle(900, function() {
+      $("#how-to").slideDown();
+    });
   });
 
-  $("#hide").click(function() {
-    $("#how-to").hide();
+  $("#close-howto").click(function() {
+    $("#how-to").slideToggle(900, function() {
+      $("#how-to").hide();
+    });
   });
 });
