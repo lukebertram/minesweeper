@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Shade|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Template Minesweeper</title>
+    <title>Floor Asplosion!</title>
   </head>
   <body>
     <div id="how-to">
@@ -29,7 +29,7 @@
       <div class="main-area">
         <div class="game" id="minesweeper1">
           <div class="mines">
-            <h1 id="mines">2</h1>
+            <h1 id="mine-count">5</h1>
             <p>mines</p>
           </div>
           <div class="gameboard" oncontextmenu="return false"></div> <!-- gameboard -->
@@ -38,12 +38,11 @@
           <form id="game-settings">
             <div class="form-group">
               <label>Difficulty</label>
-              <select id="board-size" class="select" name="size">
-                <option value="5" selected="selected">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
+              <select id="difficulty" class="select" name="size">
+                <option value="beginner" selected="selected">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="ridiculous">Ridiculous</option>
               </select>
             </div>
             <button type="submit" id="newGame">New Game</button>
