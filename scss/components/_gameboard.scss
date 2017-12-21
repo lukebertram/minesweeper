@@ -1,10 +1,8 @@
 .gameboard{
-  // width: 152px;
-  //TEMPORARY VALUE - ultimately, this will be set by javascript depending on the board-size of the the selected difficulty
-  overflow: auto;
+  overflow: hidden;
   margin: 4% 0 8% 0;
-  // min-width: 452px;
   border: $gameboard-border;
+  // display: grid;
 }
 
 // not in use

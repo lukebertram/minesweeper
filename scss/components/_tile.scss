@@ -1,39 +1,51 @@
-.tile{
-  // height: $tile-size;
-  // width: $tile-size;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  float: left;
-  border: $tile-border;
-  background-size: contain;
-  background-position: center;
-
-  //styling for tiles that have not yet been revealed
-  background-color: $tile-color;
-
-  //for use in displaying gameboard tiles via float: left
-  &.clear{
-    clear: left;
+.tile-space{
+  cursor: pointer;
+  perspective: 200px;  //placeholder value - must be larger than tile width
+  float:left;
+  .tile{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    //styling for tiles that have not yet been revealed
+      .tile-front{
+        z-index: 10;
+        background-size: contain;
+        background-position: center;
+      }
+      .tile-back{
+        transform: rotateY(180deg);
+        background-size: contain;
+        background-position: center;
+      }
+      .tile-front, .tile-back{
+        backface-visibility: hidden;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+      }
+  }
+  &.clicked .tile{
+    transform: rotateY(180deg);
   }
 
-  &.clicked{
-    background-color: white;
-  }
   //a revealed tile with no mine and no information
   &.empty{
 
   }
 
   //a hidden tile that has been marked with a flag by the player
-  &.flagged{
+  &.flagged .tile-front{
     background-image: url('../img/flag.png');
   }
 
   //a revealed tile with a mine on it (only displayed on game over)
-  &.show-mine{
+  &.show-mine .tile-back{
     background-image: url('../img/bomb.png');
   }
+
 }
 
 .tile-value{

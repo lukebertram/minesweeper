@@ -7,22 +7,22 @@
 
 
 // GAMEBOARD VARIABLES
-$tile-size: 30px;
+// $tile-size: 80px; defined in JS
 $tile-border: 1px solid black;
 $gameboard-border: 1px solid black;
 
 //DEFAULT COLOR VALUES
-$primary: #571F4E;
-$secondary: #A2FAA3;
-$accent1: #92C9B1;
-$accent2: #4F759B;
-$color-text: #0B0A07;
+$primary: #F03A47;
+$secondary: #226CE0;
+$accent1: #86BBD8;
+$accent2: #A5D0A8;
+$color-text: #102E4A;
 $tile-color: $accent1;
 $theme-font: sans-serif;
 
 //DEFAULT PAGE STYLES
 body {
-background-color: $secondary;
+  background-color: $secondary;
 }
 
 button {
@@ -33,12 +33,14 @@ button {
 
 .user-controls {
   background-color: $primary;
-  border-radius: 10%;
-  // box-shadow: 7px 7px 3px 0px $text-color;
+  border-style: solid;
+  border-width: medium;
+  border-color: $accent2;
+  box-shadow: 3px 3px 3px 0px $color-text;
 }
 
 .tile {
-  background-color: $tile-color;
+  // background-color: $accent;
   border: $tile-border;
   box-shadow: inset 0px -1px 1px $color-text, /*bottom internal shadow*/ inset 0px 1px 1px $color-text; /*top internal highlight*/
 }
@@ -78,7 +80,7 @@ header {
   border-color: $accent2;
 }
 
-.mines-remain {
+.mines {
   background-color: lighten($accent2,15%);
   border-radius: 25%;
   border-style: double;

@@ -50,15 +50,20 @@ Gameboard.prototype.drawBoard = function(){
   //set the board dimension in css grid
   var boardWidthPx = ctx.boardSize * TILE_WIDTH_PX + 2;
   ctx.boardElement.css({
-    'grid-template': 'repeat('+ ctx.boardSize +', 1fr) / repeat ('+ ctx.boardSize +', 1fr)',
-    'width': boardWidthPx
+    'width': boardWidthPx ,
+    'grid-template': 'repeat('+ ctx.boardSize +', 1fr) / repeat ('+ ctx.boardSize +', 1fr)'
   });
   var i, j, tileElement;
   for (i = 0; i < ctx.boardSize; i++) {
     // ctx.boardData[i] = new Array(ctx.boardSize);
     for (j = 0; j < ctx.boardSize; j++) {
       //add a visual representation of the tile to the DOM
-      tileElement = $('<div class="tile" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX +'px;"></div>').appendTo(ctx.boardElement);
+      tileElement = $('<div class="tile-space" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
+                        '<div class="tile" style="width: '+ TILE_WIDTH_PX +'px; height: '+ TILE_WIDTH_PX + 'px;">' +
+                          '<div class="tile-front"></div>' +
+                          '<div class="tile-back"></div>' +
+                        '</div>' +
+                      '</div>').appendTo(ctx.boardElement);
       //add a tile object to the boardData matrix
       ctx.boardData[i][j]= new Tile(tileElement, i, j);
       //add a location data to the tile's DOM element (for when it's clicked)
@@ -174,36 +179,37 @@ var getRandomInt = function(max){
 };
 
 //helper funciton to set click listeners on tiles
-var setClickListener = function(_tileElement, boardData){
-  _tileElement.mouseup(function(click){
+var setClickListener = function(tileSpaceElement, boardData){
+  var tileBack = tileSpaceElement.find('tile-back');
+  tileSpaceElement.mouseup(function(click){
     switch (click.which) {
       //ON LEFT CLICK:
       case 1:
         //if clicked tile is flagged, do nothing and break
-        if (_tileElement.hasClass('flagged')) {
+        if (tileSpaceElement.hasClass('flagged')) {
           break;
         }
         var x, y;
         //get coordinates
-        x = _tileElement.data('location').x;
-        y = _tileElement.data('location').y;
-        //check boardData for mine, flag
+        x = tileSpaceElement.data('location').x;
+        y = tileSpaceElement.data('location').y;
+        //check boardData for mine
         if (boardData[x][y].isMine)
         {
-          _tileElement.addClass('clicked show-mine');
+          tileSpaceElement.addClass('clicked show-mine');
           alert('you clicked on a mine');
 
         //if the clicked tile is not already revealed
-        } else if (!_tileElement.hasClass('clicked')){
+        } else if (!tileSpaceElement.hasClass('clicked')){
           //if the tile's numerical value is not empty
           if (!boardData[x][y].isEmpty){
             //add a span containing the tile's numerical value
-            _tileElement.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
-            _tileElement.addClass('clicked');
+            tileSpaceElement.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
+            tileSpaceElement.addClass('clicked');
           }
           //otherwise, initiate recursive tile reveal
           else {
-            // _tileElement.addClass('clicked');
+            // tileSpaceElement.addClass('clicked');
 
             //recursively flip adjacent empty tiles
             chainFlip(boardData[x][y]);
@@ -220,7 +226,7 @@ var setClickListener = function(_tileElement, boardData){
       case 3:
 
         //toggle flagged class on tile element
-        _tileElement.toggleClass('flagged');
+        tileSpaceElement.toggleClass('flagged');
         break;
 
       default:
@@ -274,11 +280,22 @@ $(function(){
     event.preventDefault();
     var choice = $('#theme-choice').val();
     if (choice === "1") {
-      $("body").toggleClass("theme1");
+      $("body").removeClass().addClass("theme1");
     } else if (choice === "2") {
-      $("body").toggleClass("theme2");
+      $("body").removeClass().addClass("theme2");
     } else if (choice === "3") {
-      $("body").toggleClass("theme3");
+      $("body").removeClass().addClass("theme3");
+    } else if (choice === "default") {
+      $("body").removeClass();
     }
+  });
+
+  $("#question-mark").click(function() {
+    $("#how-to").add('horizTranslate');
+    $("#how-to").show();
+  });
+
+  $("#hide").click(function() {
+    $("#how-to").hide();
   });
 });

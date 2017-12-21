@@ -1,7 +1,38 @@
 // How to area is HIDDEN until icon is clicked.
 // The plan is to reveal a 0.5 opacity square over the grid (in tablet and desktop, if we get the grid responsive), which pauses game and has a toggler to go back to game, and have the square take up the whole page at mobile view.
 
-.how-to{
+#how-to {
+  position: fixed;
   display: none;
-  overflow: hidden;
-}
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.9);
+  z-index: 2;
+  cursor: pointer;
+  }
+
+  .how-to {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20%;
+
+    h1 {
+      color: $primary;
+    }
+
+    ul {
+      list-style: circle;
+      padding: 0;
+    }
+
+    #hide {
+      font-family: $theme-font;
+      color: $secondary;
+    }
+  }

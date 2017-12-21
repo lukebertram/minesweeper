@@ -9,29 +9,30 @@
     <title>Template Minesweeper</title>
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>MineSweeper</h1>
-        <h1 class="question-mark" id="question-mark">?</h1>
-      </header>
+    <div id="how-to">
       <div class="how-to">
-        <h3>How to Play:</h3>
+        <h1>How to Play:</h1>
         <ul>
           <li>Click the tiles to sniff out mines.</li>
           <li>Click all unmined tiles to win.</li>
           <li>Be careful not to click on a mine!</li>
         </ul>
+        <h3 id="hide">>>> Return to your game <<<<</h3>
       </div>
+    </div>
+      <header>
+        <h1>Minesweeper</h1>
+        <div id="question-mark">
+          <h1 class="question-mark">?</h1>
+        </div>
+      </header>
       <div class="main-area">
         <div class="game" id="minesweeper1">
-          <div class="mines-remain">
+          <div class="mines">
             <h1 id="mines">2</h1>
-            <p>mines remain</p>
+            <p>mines</p>
           </div>
-
-
           <div class="gameboard" oncontextmenu="return false"></div> <!-- gameboard -->
-
         </div>  <!-- game -->
         <div class="user-controls">
           <form id="game-settings">
@@ -61,15 +62,14 @@
           </form>
 
         </div>
-      </div>
-      <footer>
-        <h6>Minesweeper is a project by Luke, Holly, and Sailor.</h6>
-          <ul>
-            <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
-            <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
-            <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
-          </ul>
-      </footer>
-    </div><!-- wrapper -->
+      </div><!-- main-area -->
+    <footer>
+      <h6>Minesweeper is a project by Luke, Holly, and Sailor.</h6>
+      <ul>
+        <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
+        <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
+        <li> <a href="#"><img src="img/GitHub-Mark-Light-64px.png" alt=""></a></li>
+      </ul>
+    </footer>
   </body>
 </html>
