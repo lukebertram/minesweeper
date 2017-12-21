@@ -282,6 +282,23 @@ if (mqLarge.matches){//window has a minimum width of 1000px
   console.log(TILE_WIDTH_PX);
 }
 
+// var tileSize = function(){
+//   var mqMedium = window.matchMedia("(min-width: 770px)");
+//   var mqLarge = window.matchMedia("(min-width: 1200px)");
+//   console.log(mqMedium);
+//   console.log(mqLarge);
+//   if (mqLarge.matches){//window has a minimum width of 1000px
+//     var TILE_WIDTH_PX = 100;
+//     console.log(TILE_WIDTH_PX);
+//   } else if(mqMedium.matches){//window has a minimum width of 770px
+//     var TILE_WIDTH_PX = 70;
+//     console.log(TILE_WIDTH_PX);
+//   } else { //window width is smaller than 770px
+//     var TILE_WIDTH_PX = 49;
+//     console.log(TILE_WIDTH_PX);
+//   }
+// }
+// tileSize();
 
 var myGame;
 
