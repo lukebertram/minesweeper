@@ -341,11 +341,14 @@ $(function(){
   });
 
   $("#question-mark").click(function() {
-    $("#how-to").add('horizTranslate');
-    $("#how-to").show();
+    $("#how-to").slideToggle(900, function() {
+      $("#how-to").slideDown();
+    });
   });
 
-  $("#hide").click(function() {
-    $("#how-to").hide();
+  $("#close-howto").click(function() {
+    $("#how-to").slideToggle(900, function() {
+      $("#how-to").hide();
+    });
   });
 });

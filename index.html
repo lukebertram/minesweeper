@@ -4,24 +4,25 @@
     <script src="js/jquery-3.2.1.js" charset="utf-8"></script>
     <script src="js/scripts.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Shade|Open+Sans" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Floor Asplosion!</title>
   </head>
-  <body>
+  <body class="default">
     <div id="how-to">
-      <div class="how-to">
+      <div class="how-to-content">
         <h1>How to Play:</h1>
         <ul>
           <li>Click the tiles to sniff out mines.</li>
           <li>Click all unmined tiles to win.</li>
           <li>Be careful not to click on a mine!</li>
         </ul>
-        <h3 id="hide">>>> Return to your game <<<<</h3>
+        <div id="close-howto"><i class="fa fa-window-close fa-3x"></i></div>
       </div>
     </div>
       <header>
-        <h1>Minesweeper</h1>
+        <h1 id="title">Minesweeper</h1>
         <div id="question-mark">
           <h1 class="question-mark">?</h1>
         </div>
