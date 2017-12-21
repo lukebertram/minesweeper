@@ -204,7 +204,7 @@ var setClickListener = function(tileSpaceElement, boardData){
           //if the tile's numerical value is not empty
           if (!boardData[x][y].isEmpty){
             //add a span containing the tile's numerical value
-            tileSpaceElement.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
+            tileBack.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
             tileSpaceElement.addClass('clicked');
           }
           //otherwise, initiate recursive tile reveal
@@ -252,7 +252,7 @@ var chainFlip = function(tile, delayCount){
   //set this tile's animation delay
   if (!tile.isEmpty){
     //add a span containing the tile's numerical value
-    tile.element.append('<span class="tile-value">'+ tile.tileValue +'</span>');
+    tile.element.find('.tile-back').append('<span class="tile-value">'+ tile.tileValue +'</span>');
   }
   setTimeout(function(){
     tile.element.addClass('clicked');
