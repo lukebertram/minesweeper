@@ -18,6 +18,9 @@
         transform: rotateY(180deg);
         background-size: contain;
         background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .tile-front, .tile-back{
         backface-visibility: hidden;
@@ -46,4 +49,8 @@
     background-image: url('../img/bomb.png');
   }
 
+}
+
+.tile-value{
+  user-select: none;
 }

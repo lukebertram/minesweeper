@@ -13,10 +13,16 @@ button {
   border-color: #A5D0A8;
   box-shadow: 3px 3px 3px 0px #102E4A; }
 
-.tile {
-  border: 1px solid black;
+.tile-space .tile .tile-front {
+  background-color: #86BBD8;
   box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
-  /*top internal highlight*/ }
+  border: 1px solid black; }
+.tile-space .tile .tile-back {
+  background-color: #A5D0A8;
+  box-shadow: inset 0px -1px 1px #102E4A, inset 0px 1px 1px #102E4A;
+  border: 1px solid black; }
+.tile-space.clicked {
+  background-color: #102E4A; }
 
 .selected {
   background-color: #c7e1c8;
@@ -58,8 +64,7 @@ header {
   box-shadow: 7px 7px 3px 0px #102E4A; }
 
 .theme1 {
-  background-color: #F35e41;
-  #86BBD8: #D8f1a0; }
+  background-color: #F35e41; }
   .theme1 button {
     background-color: #F35e41;
     color: #D8f1a0;
@@ -67,7 +72,7 @@ header {
   .theme1 .user-controls {
     background-color: #00A878; }
   .theme1 .tile-space .tile .tile-front {
-    background-color: #86BBD8;
+    background-color: #D8f1a0;
     box-shadow: inset 0px -1px 1px #0B0500, inset 0px 1px 1px #0B0500;
     border: 1px solid black; }
   .theme1 .tile-space .tile .tile-back {
@@ -110,8 +115,7 @@ header {
     border: 1px solid black; }
 
 .theme3 {
-  background-color: #2f4454;
-  #86BBD8: #1c3334; }
+  background-color: #2f4454; }
   .theme3 button {
     background-color: #2f4454;
     color: #1c3334;
@@ -119,7 +123,7 @@ header {
   .theme3 .user-controls {
     background-color: #2e151b; }
   .theme3 .tile-space .tile .tile-front {
-    background-color: #86BBD8;
+    background-color: #1c3334;
     box-shadow: inset 0px -1px 1px #376e5f, inset 0px 1px 1px #376e5f;
     border: 1px solid black; }
   .theme3 .tile-space .tile .tile-back {
@@ -867,7 +871,10 @@ button {
     .tile-space .tile .tile-back {
       transform: rotateY(180deg);
       background-size: contain;
-      background-position: center; }
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
     .tile-space .tile .tile-front, .tile-space .tile .tile-back {
       backface-visibility: hidden;
       position: absolute;
@@ -880,6 +887,9 @@ button {
     background-image: url("../img/flag.png"); }
   .tile-space.show-mine .tile-back {
     background-image: url("../img/bomb.png"); }
+
+.tile-value {
+  user-select: none; }
 
 .select {
   min-width: 100px;

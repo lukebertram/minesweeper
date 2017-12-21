@@ -5,7 +5,7 @@
 var Game = function(root, size){
   this.size = size;
   this.root = root;
-  this.board = new Gameboard(root.find('.gameboard'), size, 5); //hardcoded for testing - creates a 3x3 board with 1 mine
+  this.board = new Gameboard(root.find('.gameboard'), size, 10); //hardcoded for testing - creates a 3x3 board with 1 mine
 };
 
 // Gameboard Tile object constructor
@@ -17,7 +17,8 @@ var Tile = function(element, x, y){
   this.isMine = false;
   this.flagged = false;
   this.tileValue = 0;
-  this.isEmpty = !this.tileValue;
+  this.isEmpty = 1;
+  this.recursed = false;
 };
 
 // set the Tile's 'isMine' property to either true or false
@@ -99,7 +100,15 @@ Gameboard.prototype.calcTileValues = function(){
       if(!tile.isMine){
         //calculate the number of adjacent tiles containing mines
 
-        var mines = this.checkNeighborTiles(tile);
+        // var mines = this.getNeighborTiles(tile);
+        var adjTiles = this.getNeighborTiles(tile);
+        //increment mineCount for every adjacent tile that contains a mine
+        var mines = 0;
+        for (var k = 0; k < adjTiles.length; k++) {
+          if (adjTiles[k].isMine) {
+            mines++;
+          }
+        }
 
         //if the number of adjacent tiles containing mines is > 0
         if (mines > 0){
@@ -116,7 +125,8 @@ Gameboard.prototype.calcTileValues = function(){
   }
 }
 
-Gameboard.prototype.checkNeighborTiles = function(tile){
+//count the number of adjacent tiles that contain mines
+Gameboard.prototype.getNeighborTiles = function(tile){
 
   var mineCount = 0;
   var adjTiles = [];
@@ -153,14 +163,14 @@ Gameboard.prototype.checkNeighborTiles = function(tile){
   if (tile.x > 0 && tile.y > 0) {
     adjTiles.push(this.boardData[tile.x - 1][tile.y - 1]);
   }
-  console.log(adjTiles);
-  for (var i = 0; i < adjTiles.length; i++) {
-    if (adjTiles[i].isMine) {
-      mineCount++;
-    }
-  }
-  console.log('minecount: '+ mineCount);
-  return mineCount;
+
+  //increment mineCount for every adjacent tile that contains a mine
+  // for (var i = 0; i < adjTiles.length; i++) {
+  //   if (adjTiles[i].isMine) {
+  //     mineCount++;
+  //   }
+  // }
+  return adjTiles;
 }
 
 //helper function to generate random integers between 0 (inclusive) and provided maximum (exclusive)
@@ -170,7 +180,7 @@ var getRandomInt = function(max){
 
 //helper funciton to set click listeners on tiles
 var setClickListener = function(tileSpaceElement, boardData){
-  var tileBack = tileSpaceElement.find('tile-back');
+  var tileBack = tileSpaceElement.find('.tile-back');
   tileSpaceElement.mouseup(function(click){
     switch (click.which) {
       //ON LEFT CLICK:
@@ -189,16 +199,22 @@ var setClickListener = function(tileSpaceElement, boardData){
           tileSpaceElement.addClass('clicked show-mine');
           alert('you clicked on a mine');
 
-        //toggle clicked and add tileValue to tile's 'tile-front' div in the DOM
-      } else if (!tileSpaceElement.hasClass('clicked')){
+        //if the clicked tile is not already revealed
+        } else if (!tileSpaceElement.hasClass('clicked')){
+          //if the tile's numerical value is not empty
           if (!boardData[x][y].isEmpty){
+            //add a span containing the tile's numerical value
             tileBack.append('<span class="tile-value">'+ boardData[x][y].tileValue +'</span>');
+            tileSpaceElement.addClass('clicked');
           }
-          tileSpaceElement.addClass('clicked');
+          //otherwise, initiate recursive tile reveal
+          else {
+            // tileSpaceElement.addClass('clicked');
+
+            //recursively flip adjacent empty tiles
+            chainFlip(boardData[x][y]);
+          }
         }
-        console.log(tileSpaceElement.attr('class'));
-        console.log('left click on tile at '+ tileSpaceElement.data('location').x +
-              ', ' + tileSpaceElement.data('location').y );
         break;
 
       //ON MIDDLE CLICK:
@@ -211,9 +227,6 @@ var setClickListener = function(tileSpaceElement, boardData){
 
         //toggle flagged class on tile element
         tileSpaceElement.toggleClass('flagged');
-        console.log(tileSpaceElement.attr('class'));
-        console.log('right click on tile at '+ tileSpaceElement.data('location').x +
-              ', ' + tileSpaceElement.data('location').y );
         break;
 
       default:
@@ -222,11 +235,35 @@ var setClickListener = function(tileSpaceElement, boardData){
   });
 }
 
+var chainFlip = function(tile, delayCount){
+  tile.recursed = true;
+  var delay = delayCount || 0;
+  //get array of tiles surrounding tileElement
+  var neighbors = myGame.board.getNeighborTiles(tile);
+  console.log("tile "+tile.x + " " + tile.y + " has "+neighbors.length+" neighbors");
+  //for each tile in array
+  for (var i = 0; i < neighbors.length; i++) {
+    //if tile is empty, call chainFlip on that tile
+    if (!neighbors[i].isMine && !neighbors[i].recursed){
+      chainFlip(neighbors[i], delay+1);
+    }
+  }
 
+  //if the tile has a number value and that value hasn't been added to its tile-back yet
+  if (!tile.isEmpty){
+    //add a span containing the tile's numerical value
+    tile.element.find('.tile-back').empty();
+    tile.element.find('.tile-back').append('<span class="tile-value">'+ tile.tileValue +'</span>');
+  }
+  setTimeout(function(){
+    tile.element.addClass('clicked');
+  }, (75 * delayCount));
+
+}
 
 //GLOBAL VARIABLES
-var DEFAULT_BOARD_SIZE = 5;
-var TILE_WIDTH_PX = 80;
+const DEFAULT_BOARD_SIZE = 5;
+const TILE_WIDTH_PX = 50;
 var myGame;
 
 //jquerey
