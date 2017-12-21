@@ -29,6 +29,7 @@
   opacity: 1;
   font: $gameover-font;
   color: $victory-color;
+  background-image: url(../img/source.gif);
   position: absolute;
   left: 0;
   top: 0;
@@ -40,6 +41,7 @@
   align-items: center;
   content: "YOU DID IT!";
   transition: all 2s ease;
+
 }
 .gameover:after{
   z-index: 1;

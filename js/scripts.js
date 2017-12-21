@@ -11,6 +11,7 @@ var Game = function(root, size, numMines){
 };
 
 Game.prototype.endGame = function(string){
+  console.log("you got to the end");
   //if string is not empty
   if (string === "win"){
     //show victory screen
@@ -335,8 +336,8 @@ $(function(){
       $("body").removeClass().addClass("theme2");
     } else if (choice === "3") {
       $("body").removeClass().addClass("theme3");
-    } else if (choice === "default") {
-      $("body").removeClass();
+    } else if (choice === "4") {
+      $("body").removeClass().addClass("default");
     }
   });
 
