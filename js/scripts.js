@@ -180,7 +180,7 @@ var getRandomInt = function(max){
 
 //helper funciton to set click listeners on tiles
 var setClickListener = function(tileSpaceElement, boardData){
-  var tileBack = tileSpaceElement.find('tile-back');
+  var tileBack = tileSpaceElement.find('.tile-back');
   tileSpaceElement.mouseup(function(click){
     switch (click.which) {
       //ON LEFT CLICK:
